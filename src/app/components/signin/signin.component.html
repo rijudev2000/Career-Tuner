@@ -1,0 +1,104 @@
+<app-navbar></app-navbar>
+<div class="login">
+  <div class="container">
+    <div class="form-container sign-up-container">
+      <form (ngSubmit)="signup(rform)" #rform="ngForm" ngNativeValidate>
+        <h1>Create Account</h1>
+        <div class="social-container">
+          <!-- <a href="#" class="social"><fa-icon [icon]="facebook"></fa-icon></a>
+          <a href="#" class="social"><fa-icon [icon]="google"></fa-icon></a>
+          <a href="#" class="social"><fa-icon [icon]="linkedin"></fa-icon></a> -->
+        </div>
+        <span>or use your email for registration</span>
+        <select id="role" class="form-select">
+          <option value="Applicant" selected>Applicant</option>
+          <option value="Recruiter">Recruiter</option>
+        </select>
+        <input name="email" type="email" placeholder="Email" ngModel required />
+        <input
+          name="phone"
+          type="number"
+          placeholder="Phone"
+          maxlength="10"
+          minlength="10"
+          ngModel
+          required
+        />
+        <input
+          name="password"
+          type="password"
+          placeholder="Password"
+          minlength="6"
+          ngModel
+          required
+        />
+        <button class="btn btn-primary signIn">Sign Up</button>
+      </form>
+    </div>
+    <div class="form-container sign-in-container">
+      <form (ngSubmit)="signin(myForm)" #myForm="ngForm" ngNativeValidate>
+        <h1>Sign in</h1>
+        <div class="social-container">
+          <!-- <a href="#" class="social"><fa-icon [icon]="facebook"></fa-icon></a>
+          <a href="#" class="social"><fa-icon [icon]="google"></fa-icon></a>
+          <a href="#" class="social"><fa-icon [icon]="linkedin"></fa-icon></a> -->
+        </div>
+        <span></span><!-- or use your account -->
+        <span *ngIf="toggle">Invalid Email or Password</span>
+        <input name="email" type="email" placeholder="Email" ngModel required />
+        <input
+          name="password"
+          type="password"
+          placeholder="Password"
+          minlength="6"
+          ngModel
+          required
+        />
+        <a href="#">Forgot your password?</a>
+        <button class="btn btn-primary signIn" type="submit">SUBMIT</button>
+      </form>
+    </div>
+    <div class="overlay-container">
+      <div class="overlay">
+        <div class="overlay-panel overlay-left">
+          <h1>Welcome Back!</h1>
+          <p>To keep connected with us please login with your personal info</p>
+          <button class="ghost" id="signIn" (click)="remove($event)">
+            Sign In
+          </button>
+        </div>
+        <div class="overlay-panel overlay-right">
+          <h1>Hello, Friend!</h1>
+          <p>Enter your personal details and start your journey with us !</p>
+          <button class="ghost" id="signUp" (click)="remove($event)">
+            Sign Up
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <div class="dashboard" *ngIf="toggle1">
+  <h1 class="dash">CAREER TUNER</h1>
+  <div class="container">
+    <div id="wifi-loader">
+      <svg class="circle-outer" viewBox="0 0 86 86">
+        <circle class="back" cx="43" cy="43" r="40"></circle>
+        <circle class="front" cx="43" cy="43" r="40"></circle>
+        <circle class="new" cx="43" cy="43" r="40"></circle>
+      </svg>
+      <svg class="circle-middle" viewBox="0 0 60 60">
+        <circle class="back" cx="30" cy="30" r="27"></circle>
+        <circle class="front" cx="30" cy="30" r="27"></circle>
+      </svg>
+      <svg class="circle-inner" viewBox="0 0 34 34">
+        <circle class="back" cx="17" cy="17" r="14"></circle>
+        <circle class="front" cx="17" cy="17" r="14"></circle>
+      </svg>
+
+      <div class="text" data-text="loading..."></div>
+    </div>
+  </div>
+</div> -->
+<app-footer *ngIf="!toggle1"></app-footer>
+<app-spinner *ngIf="toggle1"></app-spinner>

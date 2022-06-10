@@ -1,0 +1,123 @@
+<div class="joblisting">
+  <div class="container" #tab1>
+    <h1
+      class="mb-5 mt-5 wow fadeInUp"
+      data-wow-delay="0.1s"
+      style="justify-content: center; align-self: center; display: grid"
+    >
+      Job Listing
+    </h1>
+    <form (submit)="onSubmit($event)" ngNativeValidate>
+      <div class="d-flex flex-row m-5">
+        <input
+          type="text"
+          class="form-control m-2"
+          placeholder="Keyword"
+          name="keyword"
+          required
+        />
+        <select class="form-select m-2" name="category">
+          <option hidden>Select Category</option>
+          <option value="Marketing">Marketing</option>
+          <option value="Customer Service">Customer Service</option>
+          <option value="Human Resource">Human Resource</option>
+          <option value="Project Management">Project Management</option>
+          <option value="Business Development">Business Development</option>
+          <option value="Sales Communication">Sales Communication</option>
+          <option value="Teaching And Education">Teaching And Education</option>
+          <option value="Design And Creative">Design And Creative</option>
+        </select>
+        <select class="form-select m-2" name="location">
+          <option>Location</option>
+          <option>Location</option>
+          <option>Location</option>
+        </select>
+        <input type="submit" class="btn btn-primary m-2" value="Search" />
+      </div>
+    </form>
+
+    <div class="tab-class text-center wow fadeInUp" data-wow-delay="0.3s">
+      <ul
+        class="nav nav-pills d-inline-flex justify-content-center border-bottom mb-5"
+      >
+        <li class="nav-item mr-5">
+          <h6 class="cursor m-2" (click)="filter('Featured')">All</h6>
+        </li>
+        <li class="nav-item ml-3">
+          <h6 class="cursor m-2" (click)="filter('FullTime')">Full Time</h6>
+        </li>
+        <li class="nav-item">
+          <h6 class="cursor m-2" (click)="filter('PartTime')">Part Time</h6>
+        </li>
+      </ul>
+      <div class="tab-content" *ngIf="toggle1">
+        <div id="tab-1" class="tab-pane fade show p-0 active">
+          <div class="job-item p-4 mb-4 border" *ngFor="let i of jobData">
+            <div class="row g-4">
+              <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                <img
+                  class="flex-shrink-0 img-fluid border rounded"
+                  src="/assets/user.jpg"
+                  alt=""
+                  style="width: 80px; height: 80px"
+                />
+
+                <div class="text-start ps-4">
+                  <h5 class="mb-3">{{ i.jobTitle }}</h5>
+                  <span class="text-truncate me-3"
+                    ><i class="fa fa-map-marker-alt text-primary me-2"></i
+                    >{{ i.location }}</span
+                  >
+                  <span class="text-truncate me-3"
+                    ><i class="far fa-clock text-primary me-2"></i
+                    >{{ i.jobtype }}</span
+                  >
+                  <span class="text-truncate me-0"
+                    ><i class="far fa-money-bill-alt text-primary me-2"></i
+                    >{{ i.salary[0].minSalary }} -
+                    {{ i.salary[0].maxSalary }}</span
+                  >
+                </div>
+              </div>
+              <div
+                class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center"
+              >
+                <div class="d-flex mb-3">
+                  <a class="btn btn-light btn-square me-3"
+                    ><fa-icon
+                      [icon]="like"
+                      style="color: red; background-color: transparent"
+                    ></fa-icon
+                  ></a>
+                  <a class="btn btn-primary" (click)="clicked(i._id)"
+                    >Apply Now</a
+                  >
+                </div>
+                <small class="text-truncate"
+                  ><i class="far fa-calendar-alt text-primary me-2"></i>Dead
+                  Line: {{ i.deadline }}</small
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <a class="btn btn-primary py-3 px-5 mb-5" (click)="browsemore()"
+          >Browse More Jobs</a
+        >
+      </div>
+      <div class="tab-content mb-5" *ngIf="!toggle1">
+        <div id="tab-1" class="tab-pane fade show p-0 active">
+          <div class="job-item p-4 mb-5" *ngFor="let i of jobData">
+            <div class="row g-4">
+              <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                <div class="text-start ps-4">
+                  <h6 class="mb-5">{{ i.jobTitle }}</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

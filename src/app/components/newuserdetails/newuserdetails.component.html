@@ -1,0 +1,134 @@
+<header id="header" class="header">
+  <div class="container">
+    <form (submit)="submit($event)">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="text-container">
+            <h1>Enter Details</h1>
+          </div>
+          <label style="color: white" class="mt-5">Name</label>
+
+          <div class="d-flex p-2">
+            <input
+              type="text"
+              placeholder="First Name"
+              class="form-control m-2"
+              maxlength="20"
+              name="fname"
+              required
+            />
+            <input
+              type="text"
+              placeholder="Middle Name"
+              class="form-control m-2"
+              maxlength="20"
+              name="mname"
+            />
+            <input
+              type="text"
+              placeholder="Last Name"
+              class="form-control m-2"
+              maxlength="25"
+              name="lname"
+            />
+          </div>
+          <label style="color: white" class="m-2">Education</label>
+          <div class="d-flex p-2">
+            <input
+              type="text"
+              placeholder="School 10th"
+              class="form-control m-2"
+              name="schooltenth"
+              required
+            />
+            <input
+              type="text"
+              placeholder="10th Percentage/CGPA"
+              class="form-control m-2"
+              name="gradetenth"
+              required
+            />
+            <input
+              type="text"
+              placeholder="School 12th"
+              class="form-control m-2"
+              name="schooltwelth"
+              required
+            />
+            <input
+              type="text"
+              placeholder="School 12th Stream"
+              class="form-control m-2"
+              name="stream"
+              required
+            />
+            <input
+              type="text"
+              placeholder="12th Percentage/CGPA"
+              class="form-control m-2"
+              name="gradetwelth"
+              required
+            />
+          </div>
+          <div class="d-flex p-2">
+            <input
+              type="text"
+              placeholder="College"
+              class="form-control m-2"
+              name="college"
+              required
+            />
+            <input
+              type="text"
+              placeholder="Degree"
+              class="form-control m-2"
+              name="degree"
+              required
+            />
+            <input
+              type="text"
+              placeholder="Semester"
+              class="form-control m-2"
+              name="semester"
+              required
+            />
+            <input
+              type="text"
+              placeholder="College Latest SGPA"
+              class="form-control m-2"
+              name="gradecollege"
+              required
+            />
+          </div>
+          <label style="color: white; float: left" class="m-2 p-2">Bio</label>
+          <textarea
+            class="form-control m-2 p-2"
+            style="height: 100px; resize: none !important"
+            maxlength="250"
+            name="bio"
+          ></textarea>
+        </div>
+      </div>
+      <div class="mt-4 mb-5">
+        
+        <div class="input-file-container">
+          <input
+            class="input-file"
+            id="my-file"
+            type="file"
+            accept="application/pdf"
+            (change)="change()"
+          />
+          <label for="my-file" class="btn-solid-lg text-white cursor"
+            >Add Resume</label
+          >
+        </div>
+        <p class="file-return" style="color: white;"></p>
+      </div>
+
+      <button class="btn-solid-lg text-white cursor" type="submit">
+        Register
+      </button>
+    </form>
+  </div>
+</header>
