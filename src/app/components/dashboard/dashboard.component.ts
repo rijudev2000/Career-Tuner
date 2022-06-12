@@ -51,7 +51,7 @@ export class DashboardComponent implements OnInit {
     );
     
   }
-  togglespinner: boolean = true;
+  togglespinner: boolean = false;
   userData: UserData = new UserData();
   name: any;
   jobDataApplied: any = [];
