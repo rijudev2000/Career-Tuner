@@ -31,13 +31,13 @@
 }
 
 /* Dropdown Menu */
-.navbar-custom .dropdown:hover > .dropdown-menu {
-  display: block; /* this makes the dropdown menu stay open while hovering it */
+/* .navbar-custom .dropdown:hover > .dropdown-menu {
+  display: block; 
   min-width: auto;
-  animation: fadeDropdown 0.2s; /* required for the fade animation */
-}
+  animation: fadeDropdown 0.2s; 
+} */
 
-@keyframes fadeDropdown {
+/* @keyframes fadeDropdown {
   0% {
     opacity: 0;
   }
@@ -45,10 +45,9 @@
   100% {
     opacity: 1;
   }
-}
+} */
 
-.navbar-custom .dropdown-toggle:focus {
-  /* removes dropdown outline on focus */
+/* .navbar-custom .dropdown-toggle:focus {
   outline: 0;
 }
 
@@ -83,7 +82,7 @@
   border: none;
   background-color: #c4d8dc;
   opacity: 0.2;
-}
+} */
 /* end of dropdown menu */
 
 .social-icons {
@@ -137,14 +136,7 @@ button {
   margin-right: 0.125rem;
 }
 
-
-#ngdropdown {
-  position: fixed;
-  top: 3rem;
-  right: 15rem;
-}
-
-.top-nav-collapse {
+/* .top-nav-collapse {
   background-color: white;
   height: 62px;
 }
@@ -154,4 +146,4 @@ button {
   color: #333;
   text-decoration: none;
   transition: all 0.2s ease;
-}
+} */

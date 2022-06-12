@@ -20,8 +20,8 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     this.User.Auth().subscribe((res) => {
       if (res.success == true) {
-        this.user = false;
-        this.link = '/home/' + sessionStorage.getItem('name');
+        this.link = '/dashboard';
+        this.user = true;
       }
     });
   }
@@ -44,7 +44,7 @@ export class NavbarComponent implements OnInit {
   faFacebook = faFacebook;
   faTwitter = faTwitter;
   faBars = faBars;
-  user: boolean = true;
+  user: boolean = false;
   link: string = '';
   a: boolean = false;
   /* start() {

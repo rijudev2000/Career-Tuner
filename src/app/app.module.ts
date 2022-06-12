@@ -22,6 +22,8 @@ import { ResetpasswordComponent } from './components/resetpassword/resetpassword
 import { JoblistingComponent } from './components/joblisting/joblisting.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { Error404Component } from './components/error404/error404.component';
+import { FeaturedjobsComponent } from './components/featuredjobs/featuredjobs.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,6 +41,8 @@ import { ProfileComponent } from './components/profile/profile.component';
     JoblistingComponent,
     DashboardComponent,
     ProfileComponent,
+    Error404Component,
+    FeaturedjobsComponent,
   ],
   imports: [
     BrowserModule,

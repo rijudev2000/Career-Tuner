@@ -7,12 +7,10 @@ import { UserService } from 'src/app/services/user.service';
 @Component({
   selector: 'app-joblisting',
   templateUrl: './joblisting.component.html',
-  styleUrls: ['./joblisting.component.scss']
+  styleUrls: ['./joblisting.component.scss'],
 })
 export class JoblistingComponent implements OnInit {
-
   constructor(private User: UserService, private Route: Router) {}
-
 
   ngOnInit(): void {
     this.User.Auth().subscribe((res) => {
@@ -21,10 +19,12 @@ export class JoblistingComponent implements OnInit {
       }
     });
     this.User.getJobDetails().subscribe((res) => {
-      for (let i = 0; i < res.length; i++) {
-        this.data.push(res[i]);
-        if (i <= 5) {
-          this.jobData.push(res[i]);
+      if (res.job.length != 0) {
+        for (let i = 0; i < res.job.length; i++) {
+          this.data.push(res.job[i]);
+          if (i <= 5) {
+            this.jobData.push(res.job[i]);
+          }
         }
       }
     });
@@ -121,16 +121,18 @@ export class JoblistingComponent implements OnInit {
   clicked(i: any) {
     let data = {
       _id: sessionStorage.getItem('email'),
-      jobs: i
+      jobs: i,
     };
-    this.User.update(data).subscribe((res)=>{
-      console.log(res)
-    },(err)=>{
-      if(err){
-        alert('Login to Apply')
-        this.Route.navigate(['/user/signin'])
-      }
-    })
+    this.User.update(data).subscribe({
+      next: (res) => {
+        console.log(res);
+      },
+      error: (err) => {
+        if (err) {
+          alert('Login to Apply');
+          this.Route.navigate(['/user/signin']);
+        }
+      },
+    });
   }
-
 }

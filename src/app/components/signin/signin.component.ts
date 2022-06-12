@@ -35,7 +35,7 @@ export class SigninComponent implements OnInit {
     });
     this.User.Auth().subscribe((res) => {
       if (res.success === true) {
-        this.Route.navigate(['home/' + sessionStorage.getItem('name')]);
+        this.Route.navigate(['dashboard']);
       }
     });
   }

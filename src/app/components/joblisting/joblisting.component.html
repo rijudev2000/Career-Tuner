@@ -1,4 +1,4 @@
-<div class="joblisting">
+<div class="joblisting pt-5">
   <div class="container" #tab1>
     <h1
       class="mb-5 mt-5 wow fadeInUp"
@@ -50,7 +50,7 @@
           <h6 class="cursor m-2" (click)="filter('PartTime')">Part Time</h6>
         </li>
       </ul>
-      <div class="tab-content" *ngIf="toggle1">
+      <div class="tab-content pb-5" *ngIf="toggle1">
         <div id="tab-1" class="tab-pane fade show p-0 active">
           <div class="job-item p-4 mb-4 border" *ngFor="let i of jobData">
             <div class="row g-4">
@@ -101,7 +101,7 @@
             </div>
           </div>
         </div>
-        <a class="btn btn-primary py-3 px-5 mb-5" (click)="browsemore()"
+        <a class="btn btn-primary py-3 px-5 mb-5 mt-5" (click)="browsemore()"
           >Browse More Jobs</a
         >
       </div>
@@ -116,6 +116,284 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-3">
+       <div class="contact-form">
+          <form action="#">
+           <h5 style="margin-bottom: 15px">Type</h5>
+
+           <div>
+                <label>
+                     <input type="checkbox">
+
+                     <small>Contract (5)</small>
+                </label>
+           </div>
+
+           <div>
+                <label>
+                     <input type="checkbox">
+
+                     <small>Full time (5)</small>
+                </label>
+           </div>
+
+           <div>
+                <label>
+                     <input type="checkbox">
+
+                     <small>Internship (5)</small>
+                </label>
+           </div>
+
+           <br>
+
+           <h5 style="margin-bottom: 15px">Category</h5>
+
+           <div>
+                <label>
+                     <input type="checkbox">
+
+                     <small>Accounting / Finance / Insurance Jobs (5)</small>
+                </label>
+           </div>
+
+           <div>
+                <label>
+                     <input type="checkbox">
+
+                     <small>Accounting / Finance / Insurance Jobs (5)</small>
+                </label>
+           </div>
+
+           <div>
+                <label>
+                     <input type="checkbox">
+
+                     <small>Accounting / Finance / Insurance Jobs (5)</small>
+                </label>
+           </div>
+
+           <br>
+
+           <h5 style="margin-bottom: 15px">Career levels</h5>
+
+           <div>
+                <label>
+                     <input type="checkbox">
+
+                     <small>Entry Level (5)</small>
+                </label>
+           </div>
+
+           <div>
+                <label>
+                     <input type="checkbox">
+
+                     <small>Entry Level (5)</small>
+                </label>
+           </div>
+
+           <div>
+                <label>
+                     <input type="checkbox">
+
+                     <small>Entry Level (5)</small>
+                </label>
+           </div>
+
+           <br>
+
+           <h5 style="margin-bottom: 15px">Education levels</h5>
+
+           <div>
+                <label>
+                     <input type="checkbox">
+
+                     <small>Associate Degree (5)</small>
+                </label>
+           </div>
+
+           <div>
+                <label>
+                     <input type="checkbox">
+
+                     <small>Associate Degree (5)</small>
+                </label>
+           </div>
+
+           <div>
+                <label>
+                     <input type="checkbox">
+
+                     <small>Associate Degree (5)</small>
+                </label>
+           </div>
+
+           <br>
+
+
+           <h5 style="margin-bottom: 15px">Years of experience</h5>
+
+           <div>
+                <label>
+                     <input type="checkbox">
+
+                      <small>&lt; 1 (5)</small>
+                </label>
+           </div>
+
+           <div>
+                <label>
+                     <input type="checkbox">
+
+                      <small>&lt; 1 (5)</small>
+                </label>
+           </div>
+
+           <div>
+                <label>
+                     <input type="checkbox">
+
+                      <small>&lt; 1 (5)</small>
+                </label>
+           </div>
+      </form>
+       </div>
+    </div>
+
+    <div class="col-md-9">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="product-item">
+            <a href="job-details.html"><img src="assets/images/product-1-370x270.jpg" alt=""></a>
+            <div class="down-content">
+              <a href="job-details.html"><h4>Lorem ipsum dolor sit amet</h4></a>
+
+              <h6>$60 000</h6>
+
+              <h4><small><i class="fa fa-briefcase"></i> Medical / Health Jobs <br> <strong><i class="fa fa-building"></i> BMI Kings Park Hospital</strong></small></h4>
+
+              <small>
+                   <strong title="Posted on"><i class="fa fa-calendar"></i> 15-06-2020</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                   <strong title="Type"><i class="fa fa-file"></i> Contract</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                   <strong title="Location"><i class="fa fa-map-marker"></i> London</strong>
+              </small>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="product-item">
+            <a href="job-details.html"><img src="assets/images/product-2-370x270.jpg" alt=""></a>
+            <div class="down-content">
+              <a href="job-details.html"><h4>Lorem ipsum dolor sit amet</h4></a>
+
+              <h6>$60 000</h6>
+
+              <h4><small><i class="fa fa-briefcase"></i> Medical / Health Jobs <br> <strong><i class="fa fa-building"></i> BMI Kings Park Hospital</strong></small></h4>
+
+              <small>
+                   <strong title="Posted on"><i class="fa fa-calendar"></i> 15-06-2020</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                   <strong title="Type"><i class="fa fa-file"></i> Contract</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                   <strong title="Location"><i class="fa fa-map-marker"></i> London</strong>
+              </small>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="product-item">
+            <a href="job-details.html"><img src="assets/images/product-3-370x270.jpg" alt=""></a>
+            <div class="down-content">
+              <a href="job-details.html"><h4>Lorem ipsum dolor sit amet</h4></a>
+
+              <h6>$60 000</h6>
+
+              <h4><small><i class="fa fa-briefcase"></i> Medical / Health Jobs <br> <strong><i class="fa fa-building"></i> BMI Kings Park Hospital</strong></small></h4>
+
+              <small>
+                   <strong title="Posted on"><i class="fa fa-calendar"></i> 15-06-2020</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                   <strong title="Type"><i class="fa fa-file"></i> Contract</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                   <strong title="Location"><i class="fa fa-map-marker"></i> London</strong>
+              </small>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="product-item">
+            <a href="job-details.html"><img src="assets/images/product-4-370x270.jpg" alt=""></a>
+            <div class="down-content">
+              <a href="job-details.html"><h4>Lorem ipsum dolor sit amet</h4></a>
+
+              <h6>$60 000</h6>
+
+              <h4><small><i class="fa fa-briefcase"></i> Medical / Health Jobs <br> <strong><i class="fa fa-building"></i> BMI Kings Park Hospital</strong></small></h4>
+
+              <small>
+                   <strong title="Posted on"><i class="fa fa-calendar"></i> 15-06-2020</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                   <strong title="Type"><i class="fa fa-file"></i> Contract</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                   <strong title="Location"><i class="fa fa-map-marker"></i> London</strong>
+              </small>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="product-item">
+            <a href="job-details.html"><img src="assets/images/product-5-370x270.jpg" alt=""></a>
+            <div class="down-content">
+              <a href="job-details.html"><h4>Lorem ipsum dolor sit amet</h4></a>
+
+              <h6>$60 000</h6>
+
+              <h4><small><i class="fa fa-briefcase"></i> Medical / Health Jobs <br> <strong><i class="fa fa-building"></i> BMI Kings Park Hospital</strong></small></h4>
+
+              <small>
+                   <strong title="Posted on"><i class="fa fa-calendar"></i> 15-06-2020</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                   <strong title="Type"><i class="fa fa-file"></i> Contract</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                   <strong title="Location"><i class="fa fa-map-marker"></i> London</strong>
+              </small>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="product-item">
+            <a href="job-details.html"><img src="assets/images/product-6-370x270.jpg" alt=""></a>
+            <div class="down-content">
+              <a href="job-details.html"><h4>Lorem ipsum dolor sit amet</h4></a>
+
+              <h6>$60 000</h6>
+
+              <h4><small><i class="fa fa-briefcase"></i> Medical / Health Jobs <br> <strong><i class="fa fa-building"></i> BMI Kings Park Hospital</strong></small></h4>
+
+              <small>
+                   <strong title="Posted on"><i class="fa fa-calendar"></i> 15-06-2020</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                   <strong title="Type"><i class="fa fa-file"></i> Contract</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                   <strong title="Location"><i class="fa fa-map-marker"></i> London</strong>
+              </small>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-12">
+          <ul class="pages">
+            <li><a href="#">1</a></li>
+            <li class="active"><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
+          </ul>
         </div>
       </div>
     </div>

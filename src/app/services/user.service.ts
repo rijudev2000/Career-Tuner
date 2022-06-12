@@ -46,7 +46,12 @@ export class UserService {
     return this.http.post(`${this.URL}/api/jobs/postJobs`, Obj, this.config);
   }
 
+  getJobSingleDetail(Obj: any): Observable<any> {
+    return this.http.get(`${this.URL}/api/jobs/job/${Obj}`, this.config);
+  }
+
   update(Obj:any):Observable<any> {
     return this.http.put(`${this.URL}/api/user/my-details/newjob`, Obj, this.config);
   }
+
 }

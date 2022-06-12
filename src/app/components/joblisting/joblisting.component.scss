@@ -1,3 +1,283 @@
 .joblisting {
-    background-color: #fbf9f5;
+  background-color: #fbf9f5;
 }
+
+/*! CSS Used from: https://demo.phpjabbers.com/free-web-templates/job-website-template-138/vendor/bootstrap/css/bootstrap.min.css */
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+ul {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+strong {
+  font-weight: bolder;
+}
+small {
+  font-size: 80%;
+}
+a {
+  color: #007bff;
+  text-decoration: none;
+  background-color: transparent;
+  -webkit-text-decoration-skip: objects;
+}
+a:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+img {
+  vertical-align: middle;
+  border-style: none;
+}
+label {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+input {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+input {
+  overflow: visible;
+}
+input[type="checkbox"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+h4,
+h5,
+h6 {
+  margin-bottom: 0.5rem;
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1.2;
+  color: inherit;
+}
+h4 {
+  font-size: 1.5rem;
+}
+h5 {
+  font-size: 1.25rem;
+}
+h6 {
+  font-size: 1rem;
+}
+small {
+  font-size: 80%;
+  font-weight: 400;
+}
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+.row {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+.col-md-12,
+.col-md-3,
+.col-md-6,
+.col-md-9 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+@media (min-width: 768px) {
+  .col-md-3 {
+    -ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+  .col-md-6 {
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+  .col-md-9 {
+    -ms-flex: 0 0 75%;
+    flex: 0 0 75%;
+    max-width: 75%;
+  }
+  .col-md-12 {
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+@media print {
+  *,
+  ::after,
+  ::before {
+    text-shadow: none !important;
+    box-shadow: none !important;
+  }
+  a:not(.btn) {
+    text-decoration: underline;
+  }
+  img {
+    page-break-inside: avoid;
+  }
+  .container {
+    min-width: 992px !important;
+  }
+}
+/*! CSS Used from: https://demo.phpjabbers.com/free-web-templates/job-website-template-138/assets/css/fontawesome.css */
+.fa {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transform: translate(0, 0);
+}
+.fa-map-marker:before {
+  content: "\f041";
+}
+.fa-calendar:before {
+  content: "\f073";
+}
+.fa-briefcase:before {
+  content: "\f0b1";
+}
+.fa-angle-double-right:before {
+  content: "\f101";
+}
+.fa-file:before {
+  content: "\f15b";
+}
+.fa-building:before {
+  content: "\f1ad";
+}
+/*! CSS Used from: https://demo.phpjabbers.com/free-web-templates/job-website-template-138/assets/css/style.css */
+a {
+  text-decoration: none !important;
+}
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+h4,
+h5,
+h6 {
+  margin: 0px;
+}
+.product-item {
+  border: 1px solid #eee;
+  margin-bottom: 30px;
+}
+.product-item .down-content {
+  padding: 30px;
+  position: relative;
+}
+.product-item img {
+  width: 100%;
+  overflow: hidden;
+}
+.product-item .down-content h4 {
+  font-size: 17px;
+  color: #1a6692;
+  margin-bottom: 20px;
+}
+.product-item .down-content h6 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #121212;
+}
+.products ul.pages {
+  margin-top: 30px;
+  text-align: center;
+}
+.products ul.pages li {
+  display: inline-block;
+  margin: 0px 2px;
+}
+.products ul.pages li a {
+  width: 44px;
+  height: 44px;
+  display: inline-block;
+  line-height: 42px;
+  border: 1px solid #eee;
+  font-size: 15px;
+  font-weight: 700;
+  color: #121212;
+  transition: all 0.3s;
+}
+.products ul.pages li a:hover,
+.products ul.pages li.active a {
+  background-color: #f33f3f;
+  border-color: #f33f3f;
+  color: #fff;
+}
+@media (max-width: 768px) {
+  .product-item .down-content h4 {
+    margin-bottom: 20px !important;
+  }
+}
+@media (max-width: 992px) {
+  .product-item .down-content h4 {
+    margin-bottom: 10px;
+  }
+  .product-item .down-content h6 {
+    margin-bottom: 20px;
+  }
+}
+/*! CSS Used fontfaces */
+/* @font-face {
+  font-family: "FontAwesome";
+  src: url("https://demo.phpjabbers.com/free-web-templates/job-website-template-138/assets/fonts/fontawesome-webfont.eot?v=4.3.0");
+  src: url("https://demo.phpjabbers.com/free-web-templates/job-website-template-138/assets/fonts/fontawesome-webfont.eot#iefix&v=4.3.0")
+      format("embedded-opentype"),
+    url("https://demo.phpjabbers.com/free-web-templates/job-website-template-138/assets/fonts/fontawesome-webfont.woff2?v=4.3.0")
+      format("woff2"),
+    url("https://demo.phpjabbers.com/free-web-templates/job-website-template-138/assets/fonts/fontawesome-webfont.woff?v=4.3.0")
+      format("woff"),
+    url("https://demo.phpjabbers.com/free-web-templates/job-website-template-138/assets/fonts/fontawesome-webfont.ttf?v=4.3.0")
+      format("truetype"),
+    url("https://demo.phpjabbers.com/free-web-templates/job-website-template-138/assets/fonts/fontawesome-webfont.svg?v=4.3.0#fontawesomeregular")
+      format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+ */

@@ -17,27 +17,35 @@ export class HomeComponent implements OnInit {
     this.User.Auth().subscribe((res) => {
       if (res.success == true) {
         this.toggle = true;
+        this.togglespinner = false;
+      }
+      else{
+        this.togglespinner = false;
       }
     });
-    this.User.getJobDetails().subscribe((res) => {
-      for (let i = 0; i < res.length; i++) {
-        this.data.push(res[i]);
+    /* this.User.getJobDetails().subscribe((res) => {
+      if(res.success == true){
+        this.togglespinner = false;
+      }
+      for (let i = 0; i < res.job.length; i++) {
+        this.data.push(res.job[i]);
         if (i <= 5) {
-          this.jobData.push(res[i]);
+          this.jobData.push(res.job[i]);
         }
       }
-    });
+    }); */
   }
   circle = faCircle;
-  data: any = [];
+/*   data: any = []; */
   toggle: boolean = false;
   toggle1: boolean = true;
-  jobData: any = [];
+/*   jobData: any = []; */
   like = faHeart;
   counter: number = 11;
   atom = faAtom;
+  togglespinner:boolean = true;
 
-  browsemore() {
+/*   browsemore() {
     this.jobData = [];
     for (let i = 0; i < this.data.length; i++) {
       if (i <= this.counter) {
@@ -45,7 +53,7 @@ export class HomeComponent implements OnInit {
       }
     }
     this.counter += 6;
-  }
+  } */
   /* start() {
     let pos = scrollY;
     console.log(pos);
@@ -87,7 +95,7 @@ export class HomeComponent implements OnInit {
       ]);
     }
   }
-  filter(e: any) {
+/*   filter(e: any) {
     this.jobData = [];
     let i, j;
     for (i = 0, j = 0; i < this.data.length; i++) {
@@ -116,7 +124,7 @@ export class HomeComponent implements OnInit {
       };
       this.jobData.push(datas);
     }
-  }
+  } */
   clicked(i: any) {
     let data = {
       _id: sessionStorage.getItem('email'),

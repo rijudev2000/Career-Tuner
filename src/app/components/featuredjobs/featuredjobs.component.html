@@ -1,0 +1,48 @@
+<div class="latest-products pb-5">
+  <div class="container" style="color: black">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="section-heading">
+          <h2>Featured Jobs</h2>
+          <a [routerLink]="toggle?'/dashboard':'/user/signin'"
+            >view more <i class="fa fa-angle-right"></i
+          ></a>
+        </div>
+      </div>
+      <div class="d-flex">
+        <div class="product-item m-4 mt-2" *ngFor="let i of jobData">
+          <a href="job-details.html"
+            ><img src="assets/header-background.jpg" alt=""
+          /></a>
+          <div class="down-content">
+            <h3>{{ i.jobTitle }}</h3>
+
+            <h4>
+              <small
+                ><i class="fa fa-briefcase"></i> Medical / Health Jobs <br />
+                <strong
+                  ><i class="fa fa-building" style="margin-right: 4px"></i>
+                  {{ i.companyName }}</strong
+                >
+              </small>
+            </h4>
+
+            <small>
+              <strong title="DeadLine"
+                ><i class="fa fa-calendar"></i> {{ i.deadline }}</strong
+              >
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              <strong title="Type"
+                ><i class="fa fa-file"></i> {{ i.jobtype }}</strong
+              >
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              <strong title="Location"
+                ><i class="fa fa-map-marker"></i> {{ i.location }}</strong
+              >
+            </small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
