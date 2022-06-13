@@ -609,6 +609,7 @@ hr {
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem;
+  height: 100%;
 }
 .card-body {
   -ms-flex: 1 1 auto;
@@ -814,7 +815,7 @@ input:focus {
     to bottom right,
     #81807f,
     #81807f
-  ),url("/assets/header-background.jpg") bottom no-repeat;
+  ),url("/Career-Tuner//assets/header-background.jpg") bottom no-repeat;
   opacity: 0.9;
  
 }

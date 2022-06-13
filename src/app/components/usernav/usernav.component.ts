@@ -20,12 +20,12 @@ export class UsernavComponent implements OnInit {
   userdetails!: UserData;
 
   ngOnInit(): void {
-    this.User.Auth().subscribe((res) => {
+    /* this.User.Auth().subscribe((res) => {
       if (res.success === true) {
         this.user = false;
         this.link = '/home/' + sessionStorage.getItem('name');
       }
-    });
+    }); */
   }
 
   user: boolean = true;

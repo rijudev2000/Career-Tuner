@@ -1,14 +1,14 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserData } from 'src/app/models/user.model';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.scss']
+  styleUrls: ['./profile.component.scss'],
 })
 export class ProfileComponent implements OnInit {
-
   constructor(
     private User: UserService,
     private Route: Router,
@@ -16,7 +16,10 @@ export class ProfileComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.email= this.userData._id;
   }
+  @Input()
+  userData!: UserData;
 
   logout() {
     this.User.Logout().subscribe((res) => {
@@ -25,5 +28,5 @@ export class ProfileComponent implements OnInit {
       }
     });
   }
-
+  email:any;
 }

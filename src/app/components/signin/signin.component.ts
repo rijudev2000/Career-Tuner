@@ -8,7 +8,7 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 import { UserService } from 'src/app/services/user.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { from } from 'rxjs';
+import { AuthguardService } from 'src/app/services/authguard.service';
 
 @Component({
   selector: 'app-signin',
@@ -20,10 +20,19 @@ export class SigninComponent implements OnInit {
     private User: UserService,
     private Route: Router,
     private el: ElementRef,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private auth: AuthguardService
   ) {}
 
   ngOnInit(): void {
+    this.User.Auth().subscribe((res) => {
+      if (res.success == true) {
+        this.toggle1=false;
+        this.Route.navigate(['dashboard']);
+      }else{
+        this.toggle1=false;
+      }
+    });
     let myTag = this.el.nativeElement.querySelector('.container');
     this.activatedRoute.params.subscribe((param) => {
       if (param['path'] == 'register') {
@@ -33,11 +42,9 @@ export class SigninComponent implements OnInit {
         myTag.classList.remove('right-panel-active');
       }
     });
-    this.User.Auth().subscribe((res) => {
-      if (res.success === true) {
-        this.Route.navigate(['dashboard']);
-      }
-    });
+    /* if(this.auth.isAuthenticated==true){
+      this.Route.navigate(['dashboard']);
+    } */
   }
 
   facebook = faFacebookF;
@@ -46,7 +53,7 @@ export class SigninComponent implements OnInit {
   loginModel: Login = new Login();
   signupModel: UserData = new UserData();
   toggle: boolean = false;
-  toggle1: boolean = false;
+  toggle1: boolean = true;
 
   signin(form: NgForm) {
     this.toggle1 = true;
@@ -92,8 +99,6 @@ export class SigninComponent implements OnInit {
     this.User.signupModel.phone = forms.value.phone;
     this.User.signupModel.password = forms.value.password;
     this.User.signupModel.role = myTag.value;
-
-
 
     this.Route.navigate(['user-details']);
 

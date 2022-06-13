@@ -240,6 +240,11 @@
             /><span>No</span>
           </div>
         </li>
+        <li>
+          <h4>About Yourself <span style="color: red">*</span></h4>
+          <br />
+          <textarea rows="3" class="form-control" style="resize: none;"></textarea>
+        </li>
       </ul>
       <h3 style="font-size: 700">Education:</h3>
       <ul class="mb-5">
@@ -458,31 +463,29 @@
                 />
               </div>
               <div *ngIf="togglepgg == 2" class="d-flex mt-3">
-                
-                  <div>
-                    <label>Current Semester</label>
-                    <input
-                      type="text"
-                      placeholder="Semester(Eg. 3rd)"
-                      class="form-control m-2"
-                      style="width: min-content"
-                      name="semester"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label>Latest SGPA</label>
+                <div>
+                  <label>Current Semester</label>
+                  <input
+                    type="text"
+                    placeholder="Semester(Eg. 3rd)"
+                    class="form-control m-2"
+                    style="width: min-content"
+                    name="semester"
+                    required
+                  />
+                </div>
+                <div>
+                  <label>Latest SGPA</label>
 
-                    <input
-                      type="text"
-                      placeholder="Latest SGPA"
-                      class="form-control m-2"
-                      name="gradecollege"
-                      style="width: min-content"
-                      required
-                    />
-                  </div>
-                
+                  <input
+                    type="text"
+                    placeholder="Latest SGPA"
+                    class="form-control m-2"
+                    name="gradecollege"
+                    style="width: min-content"
+                    required
+                  />
+                </div>
               </div>
             </div>
           </div>

@@ -13,11 +13,11 @@ export class JoblistingComponent implements OnInit {
   constructor(private User: UserService, private Route: Router) {}
 
   ngOnInit(): void {
-    this.User.Auth().subscribe((res) => {
+    /* this.User.Auth().subscribe((res) => {
       if (res.success == true) {
         this.toggle = true;
       }
-    });
+    }); */
     this.User.getJobDetails().subscribe((res) => {
       if (res.job.length != 0) {
         for (let i = 0; i < res.job.length; i++) {

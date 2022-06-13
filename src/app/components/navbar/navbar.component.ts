@@ -4,6 +4,7 @@ import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { UserService } from 'src/app/services/user.service';
 import { Router } from '@angular/router';
 import { faUser } from '@fortawesome/free-regular-svg-icons';
+import { AuthguardService } from 'src/app/services/authguard.service';
 
 @Component({
   selector: 'app-navbar',
@@ -14,16 +15,27 @@ export class NavbarComponent implements OnInit {
   constructor(
     private User: UserService,
     private Route: Router,
-    private el: ElementRef
+    private el: ElementRef,
+    private auth: AuthguardService
   ) {}
 
-  ngOnInit(): void {
-    this.User.Auth().subscribe((res) => {
+  ngOnInit() {
+    /* if (this.auth.isAuthenticated==true) {
+      this.link = '/dashboard';
+      this.user = true;
+    } */
+    if(localStorage.getItem('email')){
+      this.link = true;
+      this.user = true;
+    }else{
+      this.link = false
+    }
+    /* this.User.Auth().subscribe((res) => {
       if (res.success == true) {
-        this.link = '/dashboard';
+        this.link = "/dashboard";
         this.user = true;
       }
-    });
+    }); */
   }
 
   @HostListener('window:scroll') onScroll(): void {
@@ -45,7 +57,7 @@ export class NavbarComponent implements OnInit {
   faTwitter = faTwitter;
   faBars = faBars;
   user: boolean = false;
-  link: string = '';
+  link: any;
   a: boolean = false;
   /* start() {
     let pos = scrollY;

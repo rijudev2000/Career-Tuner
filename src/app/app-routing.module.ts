@@ -11,14 +11,15 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
 import { SearchresultsComponent } from './components/searchresults/searchresults.component';
 import { SigninComponent } from './components/signin/signin.component';
+import { AuthguardService} from './services/authguard.service'
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'AboutUs', component: AboutusComponent },
   { path: 'user/:path', component: SigninComponent },
-  { path: 'dashboard', component: DashboardComponent },
+  { path: 'dashboard', component: DashboardComponent, canActivate:[AuthguardService] },
   { path: 'jobs', component: JoblistingComponent },
-  { path: 'postJobs', component: CreatejobComponent },
+  { path: 'postJobs', component: CreatejobComponent, canActivate:[AuthguardService] },
   { path: 'results/:keyword', component: SearchresultsComponent },
   { path: 'results/:keyword/:category', component: SearchresultsComponent },
   { path: 'results/:keyword/:category/:location', component: SearchresultsComponent },
@@ -30,6 +31,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [AuthguardService]
 })
 export class AppRoutingModule { }

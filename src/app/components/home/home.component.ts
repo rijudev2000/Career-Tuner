@@ -4,6 +4,7 @@ import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import { UserService } from 'src/app/services/user.service';
 import { NgForm } from '@angular/forms';
 import { faAtom, faCircle } from '@fortawesome/free-solid-svg-icons';
+import { AuthguardService } from 'src/app/services/authguard.service';
 
 @Component({
   selector: 'app-home',
@@ -11,9 +12,19 @@ import { faAtom, faCircle } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  constructor(private User: UserService, private Route: Router) {}
+  constructor(
+    private User: UserService,
+    private Route: Router,
+    private auth: AuthguardService
+  ) {}
 
   ngOnInit(): void {
+    /* if (this.auth.isAuthenticated==true) {
+      this.toggle = true;
+      this.togglespinner = false;
+    } else {
+      this.togglespinner = false;
+    } */
     this.User.Auth().subscribe((res) => {
       if (res.success == true) {
         this.toggle = true;
@@ -36,18 +47,17 @@ export class HomeComponent implements OnInit {
     }); */
   }
   circle = faCircle;
-/*   data: any = []; */
+  /*   data: any = []; */
   toggle: boolean = false;
   toggle1: boolean = true;
-/*   jobData: any = []; */
+  /*   jobData: any = []; */
   like = faHeart;
   counter: number = 11;
   atom = faAtom;
-  togglespinner:boolean = true;
+  togglespinner: boolean = true;
 
-/*   browsemore() {
-    this.jobData = [];
-    for (let i = 0; i < this.data.length; i++) {
+  /*   brows  togglespinner:boolean = true;
+ for (let i = 0; i < this.data.length; i++) {
       if (i <= this.counter) {
         this.jobData.push(this.data[i]);
       }
@@ -95,7 +105,7 @@ export class HomeComponent implements OnInit {
       ]);
     }
   }
-/*   filter(e: any) {
+  /*   filter(e: any) {
     this.jobData = [];
     let i, j;
     for (i = 0, j = 0; i < this.data.length; i++) {
@@ -128,15 +138,18 @@ export class HomeComponent implements OnInit {
   clicked(i: any) {
     let data = {
       _id: sessionStorage.getItem('email'),
-      jobs: i
+      jobs: i,
     };
-    this.User.update(data).subscribe((res)=>{
-      console.log(res)
-    },(err)=>{
-      if(err){
-        alert('Login to Apply')
-        this.Route.navigate(['/user/signin'])
+    this.User.update(data).subscribe(
+      (res) => {
+        console.log(res);
+      },
+      (err) => {
+        if (err) {
+          alert('Login to Apply');
+          this.Route.navigate(['/user/signin']);
+        }
       }
-    })
+    );
   }
 }

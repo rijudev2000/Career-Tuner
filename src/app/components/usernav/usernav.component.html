@@ -45,7 +45,8 @@
               Dropdown button
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <button><fa-icon [icon]="fauser" style="margin-right: 10px;"></fa-icon>{{userdetails._id}}</button>
+              <button>
+                <fa-icon [icon]="fauser" style="margin-right: 10px;"></fa-icon>{{userdetails._id}}</button>
               <button><fa-icon [icon]="fauser" style="margin-right: 10px;"></fa-icon>{{userdetails.fname}} {{userdetails.mname}} {{userdetails.lname}}</button>
               <div class="mt-5" style="cursor: pointer; display: flex; justify-content: end;" (click)="click()">Logout</div>
             </div>

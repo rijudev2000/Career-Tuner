@@ -1,4 +1,4 @@
 export const environment = {
   production: false,
-  baseUrl:'https://career-tuner.herokuapp.com' //http://localhost:4100
+  baseUrl:'http://localhost:4100'
 };
