@@ -58,14 +58,6 @@ export class DashboardComponent implements OnInit {
   }
 
   active(e: any) {
-    if (e == 'dashboard') {
-      this.activeStatus = 'dashboard';
-    }
-    if (e == 'profile') {
-      this.activeStatus = 'profile';
-    }
-    if (e == 'job') {
-      this.activeStatus = 'job';
-    }
+    this.activeStatus = e;
   }
 }
