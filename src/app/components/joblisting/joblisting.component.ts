@@ -126,6 +126,9 @@ export class JoblistingComponent implements OnInit {
     this.User.update(data).subscribe({
       next: (res) => {
         console.log(res);
+        this.User.updateJob(sessionStorage.getItem('email'),i).subscribe((res)=>{
+          console.log(res)
+        })
       },
       error: (err) => {
         if (err) {

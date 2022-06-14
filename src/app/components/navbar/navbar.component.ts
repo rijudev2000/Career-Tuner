@@ -24,18 +24,18 @@ export class NavbarComponent implements OnInit {
       this.link = '/dashboard';
       this.user = true;
     } */
-    if(localStorage.getItem('email')){
+    /* if(sessionStorage.getItem('email')){
       this.link = true;
       this.user = true;
     }else{
       this.link = false
-    }
-    /* this.User.Auth().subscribe((res) => {
+    } */
+    this.User.Auth().subscribe((res) => {
       if (res.success == true) {
-        this.link = "/dashboard";
+        this.link = true;
         this.user = true;
       }
-    }); */
+    });
   }
 
   @HostListener('window:scroll') onScroll(): void {

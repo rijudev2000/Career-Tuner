@@ -4,40 +4,45 @@ export class Login {
 }
 
 export class UserData {
-  _id?: string;
-  fname?: string;
-  mname?: string;
-  lname?: string;
-  role?: string;
-  phone?: number;
-  password?: string;
+  _id: string = '';
+  fname: string = '';
+  mname: string = '';
+  lname: string = '';
+  phone: number | undefined;
+  phone2: number | undefined;
+  password: string = '';
+  bio: string = '';
+  role: string = '';
   school: [
-    { tenth: String; grade: Number | null },
+    { tenth: String; grade: Number | undefined },
     {
       twelth: String;
       stream: String;
-      grade: Number | null;
+      grade: Number | undefined;
     }
   ] = [
-    { tenth: '', grade: null },
+    { tenth: '', grade: undefined },
     {
       twelth: '',
       stream: '',
-      grade: null,
+      grade: undefined,
     },
   ];
-  college: [{ name: String; degree: String; semester: String; grade: Number | null }] = [
-    { name: '', degree: '', semester: '', grade: null },
-  ];
-  bio?: String;
+  college: [
+    {
+      name: String;
+      degree: String;
+      semester: String;
+      grade: Number | undefined;
+    }
+  ] = [{ name: '', degree: '', semester: '', grade: undefined }];
+  jobs: string[] = [];
+  skills: string[] = [];
+  address: {
+    streetaddress: String;
+    city: String;
+    state: String;
+    zip: Number | undefined;
+  } = { streetaddress: '', city: '', state: '', zip: undefined };
+  bday: {} = {};
 }
-
-/* export interface UserStore {
-  _id: string;
-  fname: string;
-  mname: string;
-  lname: string;
-  role: string;
-  phone: number;
-  password: string;
-} */

@@ -717,6 +717,9 @@ Awesome, nor vice versa. **Please do not use brand logos for any purpose except
 to represent the company, product, or service to which they refer.**
 
 
+ng-multiselect-dropdown
+MIT
+
 rxjs
 Apache-2.0
                                Apache License

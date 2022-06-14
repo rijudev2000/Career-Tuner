@@ -9,7 +9,7 @@
       #ffbd50 50%,
       #ffbd50 100%
     ),
-    url("/Career-Tuner/assets/header-background.jpg") top center;
+    url("/assets/header-background.jpg") top center;
 }
 .input-file-container {
   position: relative;
@@ -61,4 +61,53 @@ h3 {
   color: black;
   text-decoration: underline;
   margin-top: 40px;
+}
+
+ng-multiselect-dropdown {
+  width: 100%;
+  overflow: visible;
+}
+
+:host ::ng-deep .multiselect-dropdown .dropdown-list {
+  overflow: hidden;
+}
+
+:host ::ng-deep .selected-item {
+  max-width: max-content !important;
+  background: #fcc367 !important;
+  color: #fff !important;
+  border: black !important;
+  margin-top: 1px !important;
+  padding-right: 3px !important;
+}
+
+:host ::ng-deep .selected-item a {
+  margin-left: 10px;
+  padding-bottom: 1px !important;
+  color: grey !important;
+  margin-right: 3px;
+  width: 15px;
+  padding-left: 3.5px !important;
+}
+
+:host ::ng-deep .selected-item a:hover {
+  background-color: #eee;
+  height: 25px;
+  border-radius: 20px;
+}
+
+:host ::ng-deep .dropdown-multiselect__caret::before {
+  display: none !important;
+}
+
+:host ::ng-deep .multiselect-item-checkbox input + div::before {
+  border-color:  #ffbd50 !important;
+}
+
+:host ::ng-deep .multiselect-item-checkbox input:checked + div::before {
+  background: transparent !important;
+}
+
+:host ::ng-deep .multiselect-item-checkbox input + div::after {
+  border-color: #ffbd50 !important;
 }

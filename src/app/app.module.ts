@@ -24,6 +24,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { Error404Component } from './components/error404/error404.component';
 import { FeaturedjobsComponent } from './components/featuredjobs/featuredjobs.component';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,10 +48,11 @@ import { FeaturedjobsComponent } from './components/featuredjobs/featuredjobs.co
   imports: [
     BrowserModule,
     AppRoutingModule,
+    NgMultiSelectDropDownModule,
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

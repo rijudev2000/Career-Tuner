@@ -76,462 +76,488 @@
       </div>
 
       <h3>Personal Information:</h3>
+      <form (submit)="submit($event)" ngNativeValidate>
+        <ul>
+          <li>
+            <h4>Full Name <span style="color: red">*</span></h4>
 
-      <ul>
-        <li>
-          <h4>Full Name <span style="color: red">*</span></h4>
-
-          <label>First Name</label>
-          <input
-            type="text"
-            placeholder="First Name"
-            class="form-control m-2"
-            maxlength="20"
-            name="fname"
-            required
-          />
-          <label>Middle Name</label>
-          <input
-            type="text"
-            placeholder="Middle Name"
-            class="form-control m-2"
-            maxlength="20"
-            name="mname"
-          />
-          <label>Last Name</label>
-          <input
-            type="text"
-            placeholder="Last Name"
-            class="form-control m-2"
-            maxlength="25"
-            name="lname"
-          />
-        </li>
-        <li>
-          <h4>Address</h4>
-          <label>Street Address</label>
-          <input type="text" class="form-control m-2" placeholder="Line 1" />
-          <label>Street Address Line 2</label>
-          <input type="text" class="form-control m-2" placeholder="Line 2" />
-          <label>City</label>
-          <input
-            type="text"
-            class="form-control m-2"
-            placeholder="Select a City"
-          />
-          <label>State/Province</label>
-          <input
-            type="text"
-            class="form-control m-2"
-            placeholder="Select a State/Province"
-          />
-          <label>Postal/Zip Code</label>
-          <input
-            type="text"
-            class="form-control m-2"
-            placeholder="Zip Code"
-            maxlength="6"
-          />
-        </li>
-        <li>
-          <h4>Contact Information <span style="color: red">*</span></h4>
-          <div class="d-flex mt-3">
-            <div>
-              <label>Phone Number</label>
-              <input
-                type="tel"
-                class="form-control"
-                [value]="mobile ? mobile : ''"
-                placeholder="Phone Number"
-                maxlength="10"
-                style="
-                  width: min-content;
-                  margin-right: 5rem;
-                  margin-left: 0.5rem;
-                "
-                required
-              />
-            </div>
-            <div>
-              <label>Alternate Number</label>
-              <input
-                type="tel"
-                class="form-control"
-                placeholder="Alternate Number"
-                maxlength="10"
-                style="width: min-content"
-              />
-            </div>
-          </div>
-        </li>
-        <li>
-          <h4>Email <span style="color: red">*</span></h4>
-          <input
-            type="email"
-            class="form-control m-2"
-            [value]="email ? email : ''"
-            placeholder="Email"
-          />
-        </li>
-        <li class="d-flex">
-          <div>
-            <h4>BirthDay <span style="color: red">*</span></h4>
-            <div class="d-flex">
+            <label>First Name</label>
+            <input
+              type="text"
+              placeholder="First Name"
+              class="form-control m-2"
+              maxlength="20"
+              name="fname"
+              required
+            />
+            <label>Middle Name</label>
+            <input
+              type="text"
+              placeholder="Middle Name"
+              class="form-control m-2"
+              maxlength="20"
+              name="mname"
+            />
+            <label>Last Name</label>
+            <input
+              type="text"
+              placeholder="Last Name"
+              class="form-control m-2"
+              maxlength="25"
+              name="lname"
+            />
+          </li>
+          <li>
+            <h4>Address</h4>
+            <label>Street Address</label>
+            <input
+              type="text"
+              class="form-control m-2"
+              placeholder="Line 1"
+              name="streetaddress"
+            />
+            <label>Street Address Line 2</label>
+            <input
+              type="text"
+              class="form-control m-2"
+              placeholder="Line 2"
+              name="streetaddress2"
+            />
+            <label>City</label>
+            <input
+              type="text"
+              class="form-control m-2"
+              placeholder="Select a City"
+              name="city"
+            />
+            <label>State/Province</label>
+            <input
+              type="text"
+              class="form-control m-2"
+              placeholder="Select a State/Province"
+              name="state"
+            />
+            <label>Postal/Zip Code</label>
+            <input
+              type="text"
+              class="form-control m-2"
+              placeholder="Zip Code"
+              maxlength="6"
+              name="zip"
+            />
+          </li>
+          <li>
+            <h4>Contact Information <span style="color: red">*</span></h4>
+            <div class="d-flex mt-3">
               <div>
-                <label>Month</label>
-                <select
-                  class="form-select m-2"
-                  id="month"
-                  required
-                  name="month"
-                  (change)="month($event)"
-                >
-                  <option selected hidden>Month</option>
-                  <option value="1">January</option>
-                  <option value="2">February</option>
-                  <option value="3">March</option>
-                  <option value="4">April</option>
-                  <option value="5">May</option>
-                  <option value="6">June</option>
-                  <option value="7">July</option>
-                  <option value="8">August</option>
-                  <option value="9">September</option>
-                  <option value="10">October</option>
-                  <option value="11">November</option>
-                  <option value="12">December</option>
-                </select>
-              </div>
-              <div style="margin-left: 4rem">
-                <label>Date</label>
-                <select class="form-select m-2" id="date" name="date" required>
-                  <option selected hidden>Date</option>
-                  <option value="{{ i }}" *ngFor="let i of date">
-                    {{ i }}
-                  </option>
-                </select>
-              </div>
-              <div style="margin-left: 4rem">
-                <label>Year</label
-                ><select class="form-select m-2" id="year" name="year" required>
-                  <option selected hidden>Year</option>
-                  <option value="{{ i }}" *ngFor="let i of year">
-                    {{ i }}
-                  </option>
-                </select>
-              </div>
-            </div>
-          </div>
-          <div style="margin-left: 10rem">
-            <h4>Are You a Indian Citizen?<span style="color: red">*</span></h4>
-            <input
-              type="checkbox"
-              value="Yes"
-              id="yes"
-              class="m-2 mt-5"
-              (click)="onlyone('yes')"
-            /><span>Yes</span>
-
-            <input
-              type="checkbox"
-              value="No"
-              id="no"
-              class="m-2 mt-5"
-              (click)="onlyone('no')"
-            /><span>No</span>
-          </div>
-        </li>
-        <li>
-          <h4>About Yourself <span style="color: red">*</span></h4>
-          <br />
-          <textarea rows="3" class="form-control" style="resize: none;"></textarea>
-        </li>
-      </ul>
-      <h3 style="font-size: 700">Education:</h3>
-      <ul class="mb-5">
-        <li>
-          <h4>School 10th <span style="color: red">*</span></h4>
-          <div class="d-flex">
-            <div class="flex-fill">
-              <label>School Name</label
-              ><input
-                type="text"
-                placeholder="School Name"
-                class="form-control m-2"
-                name="schooltenth"
-                required
-              />
-            </div>
-            <div style="margin-left: 4rem" class="flex-fill">
-              <label>CGPA/Percentage</label
-              ><input
-                type="text"
-                placeholder="Percentage/CGPA"
-                class="form-control m-2"
-                name="gradetenth"
-                required
-              />
-            </div>
-          </div>
-        </li>
-        <li>
-          <h4>School 12th <span style="color: red">*</span></h4>
-          <div class="input-group">
-            <label>School Name</label>
-            <label style="margin-left: 18.5rem">Stream</label>
-            <label style="margin-left: 20rem">CGPA/Percentage</label>
-          </div>
-          <div class="d-flex p-2">
-            <input
-              type="text"
-              placeholder="School Name"
-              class="form-control m-2"
-              name="schooltwelth"
-              required
-            />
-            <input
-              type="text"
-              placeholder="Stream"
-              class="form-control m-2"
-              name="stream"
-              required
-            />
-            <input
-              type="text"
-              placeholder="Percentage/CGPA"
-              class="form-control m-2"
-              name="gradetwelth"
-              required
-            />
-          </div>
-        </li>
-
-        <li>
-          <h4>Higher Education <span style="color: red">*</span></h4>
-          <div class="border-bottom pb-4">
-            <div class="mt-4 input-group pl-5 mb-3">
-              <input
-                type="checkbox"
-                name="ug"
-                id="ug"
-                (change)="ugtoggle($event.target)"
-                checked
-              /><span class="">Undergraduate</span>
-            </div>
-
-            <div *ngIf="toggleug">
-              <div class="d-flex mt-4 p-2">
-                <div class="flex-fill">
-                  <label>College Name</label>
-                  <input
-                    type="text"
-                    placeholder="College"
-                    class="form-control m-2"
-                    name="college"
-                    required
-                  />
-                </div>
-                <div style="margin-left: 4rem" class="flex-fill">
-                  <label>Degree</label
-                  ><input
-                    type="text"
-                    placeholder="Degree"
-                    class="form-control m-2"
-                    name="degree"
-                    required
-                  />
-                </div>
-              </div>
-
-              <div class="input-group pl-5 mt-3">
-                Graduated ? &nbsp;<input
-                  type="checkbox"
-                  value="Yes"
-                  id="ugyes"
-                  class="m-2"
-                  (click)="onlyone('ugyes')"
-                /><span class="p-1">Yes</span>
-
+                <label>Phone Number</label>
                 <input
-                  type="checkbox"
-                  value="No"
-                  id="ugno"
-                  class="m-2"
-                  (click)="onlyone('ugno')"
-                /><span class="p-1">No</span>
-              </div>
-              <div *ngIf="toggleugg == 1" class="mt-3">
-                <label>DGPA</label>
-                <input
-                  type="text"
-                  placeholder="Latest SGPA"
-                  class="form-control m-2"
-                  name="gradecollege"
-                  style="width: max-content"
-                  maxlength="5"
+                  type="tel"
+                  class="form-control"
+                  [value]="mobile ? mobile : ''"
+                  placeholder="Phone Number"
+                  maxlength="10"
+                  style="
+                    width: min-content;
+                    margin-right: 5rem;
+                    margin-left: 0.5rem;
+                  "
+                  name="phone"
                   required
                 />
               </div>
-              <div *ngIf="toggleugg == 2" class="d-flex mt-3">
+              <div>
+                <label>Alternate Number</label>
+                <input
+                  type="tel"
+                  class="form-control"
+                  placeholder="Alternate Number"
+                  maxlength="10"
+                  style="width: min-content"
+                  name="phone2"
+                />
+              </div>
+            </div>
+          </li>
+          <li>
+            <h4>Email <span style="color: red">*</span></h4>
+            <input
+              type="email"
+              class="form-control m-2"
+              [value]="email ? email : ''"
+              placeholder="Email"
+              name="email"
+              required
+            />
+          </li>
+          <li class="d-flex">
+            <div>
+              <h4>BirthDay <span style="color: red">*</span></h4>
+              <div class="d-flex">
                 <div>
-                  <label>Current Semester</label>
-                  <input
-                    type="text"
-                    placeholder="Semester(Eg. 3rd)"
-                    class="form-control m-2"
-                    name="semester"
-                    style="width: max-content"
-                    maxlength="4"
-                    required
-                  />
+                  <label>Month</label>
+                  <select
+                    class="form-select m-2"
+                    id="month"
+                    name="month"
+                    (change)="month($event)"
+                  >
+                    <option selected hidden>Month</option>
+                    <option value="1">January</option>
+                    <option value="2">February</option>
+                    <option value="3">March</option>
+                    <option value="4">April</option>
+                    <option value="5">May</option>
+                    <option value="6">June</option>
+                    <option value="7">July</option>
+                    <option value="8">August</option>
+                    <option value="9">September</option>
+                    <option value="10">October</option>
+                    <option value="11">November</option>
+                    <option value="12">December</option>
+                  </select>
                 </div>
-                <div>
-                  <label>Latest SGPA</label>
+                <div style="margin-left: 4rem">
+                  <label>Date</label>
+                  <select class="form-select m-2" id="date" name="date">
+                    <option selected hidden>Date</option>
+                    <option value="{{ i }}" *ngFor="let i of date">
+                      {{ i }}
+                    </option>
+                  </select>
+                </div>
+                <div style="margin-left: 4rem">
+                  <label>Year</label
+                  ><select class="form-select m-2" id="year" name="year">
+                    <option selected hidden>Year</option>
+                    <option value="{{ i }}" *ngFor="let i of year">
+                      {{ i }}
+                    </option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div style="margin-left: 10rem">
+              <h4>
+                Are You a Indian Citizen?<span style="color: red">*</span>
+              </h4>
+              <input
+                type="checkbox"
+                value="Yes"
+                id="yes"
+                class="m-2 mt-5"
+                (click)="onlyone('yes')"
+                name="citizen"
+              /><span>Yes</span>
+
+              <input
+                type="checkbox"
+                value="No"
+                id="no"
+                class="m-2 mt-5"
+                (click)="onlyone('no')"
+              /><span>No</span>
+            </div>
+          </li>
+          <li>
+            <h4>About Yourself <span style="color: red">*</span></h4>
+            <br />
+            <textarea
+              rows="3"
+              class="form-control"
+              style="resize: none"
+              name="bio"
+            ></textarea>
+          </li>
+        </ul>
+        <h3 style="font-size: 700">Education:</h3>
+        <ul class="mb-5">
+          <li>
+            <h4>School 10th <span style="color: red">*</span></h4>
+            <div class="d-flex">
+              <div class="flex-fill">
+                <label>School Name</label
+                ><input
+                  type="text"
+                  placeholder="School Name"
+                  class="form-control m-2"
+                  name="schooltenth"
+                />
+              </div>
+              <div style="margin-left: 4rem" class="flex-fill">
+                <label>CGPA/Percentage</label
+                ><input
+                  type="text"
+                  placeholder="Percentage/CGPA"
+                  class="form-control m-2"
+                  name="gradetenth"
+                />
+              </div>
+            </div>
+          </li>
+          <li>
+            <h4>School 12th <span style="color: red">*</span></h4>
+            <div class="input-group">
+              <label>School Name</label>
+              <label style="margin-left: 18.5rem">Stream</label>
+              <label style="margin-left: 20rem">CGPA/Percentage</label>
+            </div>
+            <div class="d-flex p-2">
+              <input
+                type="text"
+                placeholder="School Name"
+                class="form-control m-2"
+                name="schooltwelth"
+              />
+              <input
+                type="text"
+                placeholder="Stream"
+                class="form-control m-2"
+                name="stream"
+              />
+              <input
+                type="text"
+                placeholder="Percentage/CGPA"
+                class="form-control m-2"
+                name="gradetwelth"
+              />
+            </div>
+          </li>
+
+          <li>
+            <h4>Higher Education <span style="color: red">*</span></h4>
+            <div class="border-bottom pb-4">
+              <div class="mt-4 input-group pl-5 mb-3">
+                <input
+                  type="checkbox"
+                  name="ug"
+                  id="ug"
+                  (change)="ugtoggle($event.target)"
+                  checked
+                /><span class="">Undergraduate</span>
+              </div>
+
+              <div *ngIf="toggleug">
+                <div class="d-flex mt-4 p-2">
+                  <div class="flex-fill">
+                    <label>College Name</label>
+                    <input
+                      type="text"
+                      placeholder="College"
+                      class="form-control m-2"
+                      name="college"
+                    />
+                  </div>
+                  <div style="margin-left: 4rem" class="flex-fill">
+                    <label>Degree</label
+                    ><input
+                      type="text"
+                      placeholder="Degree"
+                      class="form-control m-2"
+                      name="degree"
+                    />
+                  </div>
+                </div>
+
+                <div class="input-group pl-5 mt-3">
+                  Graduated ? &nbsp;<input
+                    type="checkbox"
+                    value="Yes"
+                    id="ugyes"
+                    class="m-2"
+                    (click)="onlyone('ugyes')"
+                  /><span class="p-1">Yes</span>
+
+                  <input
+                    type="checkbox"
+                    value="No"
+                    id="ugno"
+                    class="m-2"
+                    (click)="onlyone('ugno')"
+                  /><span class="p-1">No</span>
+                </div>
+                <div *ngIf="toggleugg == 1" class="mt-3">
+                  <label>DGPA</label>
                   <input
                     type="text"
-                    placeholder="Latest SGPA"
+                    placeholder="DGPA"
                     class="form-control m-2"
                     name="gradecollege"
                     style="width: max-content"
                     maxlength="5"
-                    required
+                    name="DGPA"
                   />
+                </div>
+                <div *ngIf="toggleugg == 2" class="d-flex mt-3">
+                  <div>
+                    <label>Current Semester</label>
+                    <input
+                      type="text"
+                      placeholder="Semester(Eg. 3rd)"
+                      class="form-control m-2"
+                      name="currsemester"
+                      style="width: max-content"
+                      maxlength="4"
+                    />
+                  </div>
+                  <div>
+                    <label>Latest SGPA</label>
+                    <input
+                      type="text"
+                      placeholder="Latest SGPA"
+                      class="form-control m-2"
+                      style="width: max-content"
+                      maxlength="5"
+                      name="latestSGPA"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          <div class="pt-4 mt-4">
-            <div class="input-group">
-              <input
-                type="checkbox"
-                name="ug"
-                id="ug"
-                (change)="pgtoggle($event.target)"
-              /><span class="">Postgraduate</span>
-            </div>
-            <div *ngIf="togglepg">
-              <div class="d-flex mt-3 p-2">
-                <div class="flex-fill">
-                  <label>College Name</label>
-                  <input
-                    type="text"
-                    placeholder="College"
-                    class="form-control m-2"
-                    name="college"
-                    required
-                  />
-                </div>
-                <div class="flex-fill" style="margin-left: 4rem">
-                  <label>Degree</label>
-                  <input
-                    type="text"
-                    placeholder="Degree"
-                    class="form-control m-2"
-                    name="degree"
-                    required
-                  />
-                </div>
-              </div>
-
-              <div class="input-group pl-5 mt-3">
-                Graduated ? &nbsp;<input
-                  type="checkbox"
-                  value="Yes"
-                  id="pgyes"
-                  class="m-2"
-                  (click)="onlyone('pgyes')"
-                /><span class="p-1">Yes</span>
-
+            <div class="pt-4 mt-4">
+              <div class="input-group">
                 <input
                   type="checkbox"
-                  value="No"
-                  id="pgno"
-                  class="m-2"
-                  (click)="onlyone('pgno')"
-                /><span class="p-1">No</span>
+                  name="ug"
+                  id="ug"
+                  (change)="pgtoggle($event.target)"
+                /><span class="">Postgraduate</span>
               </div>
-              <div *ngIf="togglepgg == 1" class="mt-3">
-                <label>DGPA</label>
+              <div *ngIf="togglepg">
+                <div class="d-flex mt-3 p-2">
+                  <div class="flex-fill">
+                    <label>College Name</label>
+                    <input
+                      type="text"
+                      placeholder="College"
+                      class="form-control m-2"
+                      name="pgcollege"
+                    />
+                  </div>
+                  <div class="flex-fill" style="margin-left: 4rem">
+                    <label>Degree</label>
+                    <input
+                      type="text"
+                      placeholder="Degree"
+                      class="form-control m-2"
+                      name="pgdegree"
+                    />
+                  </div>
+                </div>
 
-                <input
-                  type="text"
-                  placeholder="DGPA"
-                  class="form-control m-2"
-                  name="gradecollege"
-                  style="width: min-content"
-                  required
-                />
-              </div>
-              <div *ngIf="togglepgg == 2" class="d-flex mt-3">
-                <div>
-                  <label>Current Semester</label>
+                <div class="input-group pl-5 mt-3">
+                  Graduated ? &nbsp;<input
+                    type="checkbox"
+                    value="Yes"
+                    id="pgyes"
+                    class="m-2"
+                    (click)="onlyone('pgyes')"
+                  /><span class="p-1">Yes</span>
+
+                  <input
+                    type="checkbox"
+                    value="No"
+                    id="pgno"
+                    class="m-2"
+                    (click)="onlyone('pgno')"
+                  /><span class="p-1">No</span>
+                </div>
+                <div *ngIf="togglepgg == 1" class="mt-3">
+                  <label>DGPA</label>
+
                   <input
                     type="text"
-                    placeholder="Semester(Eg. 3rd)"
+                    placeholder="DGPA"
                     class="form-control m-2"
+                    name="pggradecollege"
                     style="width: min-content"
-                    name="semester"
-                    required
                   />
                 </div>
-                <div>
-                  <label>Latest SGPA</label>
+                <div *ngIf="togglepgg == 2" class="d-flex mt-3">
+                  <div>
+                    <label>Current Semester</label>
+                    <input
+                      type="text"
+                      placeholder="Semester(Eg. 3rd)"
+                      class="form-control m-2"
+                      style="width: min-content"
+                      name="pgcurrsemester"
+                    />
+                  </div>
+                  <div>
+                    <label>Latest SGPA</label>
 
-                  <input
-                    type="text"
-                    placeholder="Latest SGPA"
-                    class="form-control m-2"
-                    name="gradecollege"
-                    style="width: min-content"
-                    required
-                  />
+                    <input
+                      type="text"
+                      placeholder="Latest SGPA"
+                      class="form-control m-2"
+                      name="pglatestSGPA"
+                      style="width: min-content"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </li>
-      </ul>
+          </li>
+        </ul>
 
-      <h3>Skills/Qualifications:</h3>
+        <h3>Skills/Qualifications:</h3>
+        <ng-multiselect-dropdown
+          class="mt-3 m-2"
+          [placeholder]="'Select Skills'"
+          [settings]="dropdownSettings"
+          [data]="dropdownList"
+          [(ngModel)]="skill"
+        >
+        </ng-multiselect-dropdown>
 
-      <h3>Cover Letter & Resume <span style="color: red">*</span></h3>
-      <div class="mt-4 mb-5">
-        <div class="input-file-container">
+        <h3>Cover Letter & Resume <span style="color: red">*</span></h3>
+
+        <div class="form-group mt-5">
           <input
-            class="input-file"
-            id="my-file"
             type="file"
-            accept="application/pdf"
+            name="file"
+            id="input-files"
+            class="input-file"
+            accept="images/jpg,images/png/,images/jpeg"
             (change)="change()"
           />
-          <label for="my-file" class="btn-solid-lg text-white cursor"
-            >Add Resume</label
-          >
+          <button for="input-files" class="btn-solid-lg text-white cursor">
+            Add Resume
+          </button>
+          <br />
+          <p class="file-return" id="return" style="color: black"></p>
         </div>
-        <p class="file-return" style="color: black"></p>
-      </div>
-      <br />
 
-      <h3>Send Application <span style="color: red">*</span></h3>
+        <br />
 
-      <div class="mt-4 mb-5">
-        By clicking the submit button below, I cerity that all of the
-        information provided by me on this application is true and complete, and
-        I understand that if any false information, ommissions, or
-        misrepresentations are discovered, my application may be rejected and,
-        if I am employed, my employement may be terminated at any time. &nbsp;
-        In consideration of my employment, I agree to conform to the company's
-        rules and regulations, and I agree that my employment and compenstation
-        can be terminated, with or without cause, and with or without notice, at
-        any time, at either my or the company's option. &nbsp; I also understand
-        and agree that the terms and conditions of my employment may be changed,
-        with or without cause, and with or without notice, at any time by the
-        company. &nbsp;
-      </div>
+        <h3>Send Application <span style="color: red">*</span></h3>
 
-      <button class="btn btn-primary" style="float: right">Submit</button>
+        <div class="mt-4 mb-5">
+          By clicking the submit button below, I cerity that all of the
+          information provided by me on this application is true and complete,
+          and I understand that if any false information, ommissions, or
+          misrepresentations are discovered, my application may be rejected and,
+          if I am employed, my employement may be terminated at any time. &nbsp;
+          In consideration of my employment, I agree to conform to the company's
+          rules and regulations, and I agree that my employment and
+          compenstation can be terminated, with or without cause, and with or
+          without notice, at any time, at either my or the company's option.
+          &nbsp; I also understand and agree that the terms and conditions of my
+          employment may be changed, with or without cause, and with or without
+          notice, at any time by the company. &nbsp;
+        </div>
+
+        <input
+          type="submit"
+          value="Submit"
+          class="btn btn-primary"
+          style="float: right"
+        />
+      </form>
     </div>
   </div>
 </div>
 
-<app-footer></app-footer>
+<app-footer *ngIf="toggle"></app-footer>

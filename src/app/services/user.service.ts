@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { UserData } from '../models/user.model';
 
 @Injectable({
@@ -17,6 +17,7 @@ export class UserService {
   };
   URL = environment.baseUrl;
   signupModel: UserData = new UserData();
+  isAuthenticated = new BehaviorSubject<boolean>(false);
 
   Auth(): Observable<any> {
     return this.http.get(`${this.URL}/api/user/auth`, this.config);
@@ -50,8 +51,35 @@ export class UserService {
     return this.http.get(`${this.URL}/api/jobs/job/${Obj}`, this.config);
   }
 
-  update(Obj:any):Observable<any> {
-    return this.http.put(`${this.URL}/api/user/my-details/newjob`, Obj, this.config);
+  update(Obj: any): Observable<any> {
+    return this.http.put(
+      `${this.URL}/api/user/my-details/newjob`,
+      Obj,
+      this.config
+    );
   }
 
+updateJob(Obj:any,id:any): Observable<any> {
+  return this.http.put(
+    `${this.URL}/api/jobs/job/${id}`,
+    Obj,
+    this.config
+  );
+}
+
+  upload(): Observable<any> {
+    return this.http.post(`${this.URL}/api/user/upload-file`, {}, this.config);
+  }
+
+  getSkills(): Observable<any> {
+
+    return this.http.get(
+      'https://skillsapi.itsyourskills.com/popular-categories',
+      {
+        headers: new HttpHeaders({
+          /* 'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImljZWJveXozMDhyaWp1QGdtYWlsLmNvbSIsImV4cGlyZXMiOjE2NTUyMzc2MjIuNTc0NTU1NH0.pVMmahS45LL-yGpKeN-Fb-XplRB7YaBYR92xrhEh11Y',
+        */ }),
+      }
+    );
+  }
 }

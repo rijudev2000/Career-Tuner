@@ -1,6 +1,8 @@
 import { Component, ElementRef, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
+import { IDropdownSettings } from 'ng-multiselect-dropdown';
+import * as skills from '../../models/skills.json';
 
 export let browserRefresh = false;
 
@@ -19,6 +21,17 @@ export class NewuserdetailsComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(this.User.signupModel);
+    /* this.User.getSkills().subscribe((res)=>{
+      console.log(res)
+    }) */
+    /* this.dropdownList = [
+      { item_id: 1, item_text: 'Mumbai' },
+      { item_id: 2, item_text: 'Bangaluru' },
+      { item_id: 3, item_text: 'Pune' },
+      { item_id: 4, item_text: 'Navsari' },
+      { item_id: 5, item_text: 'New Delhi' }
+    ]; */
+    /* console.log(this.User.signupModel); */
     /* if (this.User.signupModel._id == undefined) {
       alert('Refreshing the page lost you data \n Please fill the form again');
       this.Route.navigate(['/user/register']);
@@ -36,6 +49,13 @@ export class NewuserdetailsComponent implements OnInit {
       this.year.push(i);
     }
   }
+
+  dropdownList: {}[] = (skills as any).default;
+  dropdownSettings: IDropdownSettings = {
+    singleSelection: false,
+    allowSearchFilter: true,
+  };
+  skill: any = [];
   email: any;
   mobile: any;
   date: any = Array.from(Array(31).keys()).map((x) => x + 1);
@@ -46,33 +66,48 @@ export class NewuserdetailsComponent implements OnInit {
   toggleugg: number = 0;
   togglepgg: number = 0;
   submit(e: any) {
+    console.log(this.User.signupModel);
+    this.User.signupModel._id = e.target.email.value;
     this.User.signupModel.fname = e.target.fname.value;
     this.User.signupModel.mname = e.target.mname.value;
     this.User.signupModel.lname = e.target.lname.value;
+    this.User.signupModel.phone = e.target.phone.value;
+    this.User.signupModel.phone2 = e.target.phone2.value;
+    this.User.signupModel.bio = e.target.bio.value;
+
     this.User.signupModel.school[0].tenth = e.target.schooltenth.value;
     this.User.signupModel.school[0].grade = e.target.gradetenth.value;
     this.User.signupModel.school[1].twelth = e.target.schooltwelth.value;
     this.User.signupModel.school[1].grade = e.target.gradetwelth.value;
     this.User.signupModel.school[1].stream = e.target.stream.value;
-    this.User.signupModel.college[0].name = e.target.college.value;
+    /* this.User.signupModel.college[0].name = e.target.college.value;
     this.User.signupModel.college[0].degree = e.target.degree.value;
     this.User.signupModel.college[0].grade = e.target.gradecollege.value;
-    this.User.signupModel.college[0].semester = e.target.semester.value;
-    this.User.signupModel.bio = e.target.bio.value;
-
-    console.log(this.User.signupModel);
+    this.User.signupModel.college[0].semester = e.target.semester.value; */
+    this.User.signupModel.skills = this.skill;
+    this.User.signupModel.address.streetaddress =
+      e.target.streetaddress.value + ' ' + e.target.streetaddress2.value;
+    this.User.signupModel.address.city = e.target.city.value;
+    this.User.signupModel.address.state = e.target.state.value;
+    this.User.signupModel.address.zip = e.target.zip.value;
+    this.User.signupModel.bday =
+      e.target.date.value +
+      '/' +
+      e.target.month.value +
+      '/' +
+      e.target.year.value;
 
     this.User.SignUp(this.User.signupModel).subscribe((res) => {
       if (res == 200) {
         console.log(res);
-        let link = '/home/' + sessionStorage.getItem('name');
-        this.Route.navigate([`${link}`]);
+
+        this.Route.navigate(['/user/signin']);
       } else {
         console.log(res);
       }
     });
   }
-  
+
   change1() {
     let size = -1;
     let a = this.el.nativeElement.querySelector('.pic');
@@ -81,26 +116,38 @@ export class NewuserdetailsComponent implements OnInit {
       size = a.files[0].size / 1024 / 1024;
       if (size > 5 && size != -1) {
         b.innerHTML = 'Please Select a file less than equal to 5 MB';
-        setTimeout(()=>{b.innerHTML=''},1800)
+        setTimeout(() => {
+          b.innerHTML = '';
+        }, 1800);
         return;
       }
       this.pic = 'Picture Added';
     }
   }
   change() {
-    let size = -1;
-    let a = this.el.nativeElement.querySelector('.input-file');
-    let b = this.el.nativeElement.querySelector('.file-return');
+    let sizes = -1;
+    let a = this.el.nativeElement.querySelector('#input-files');
+    let b = this.el.nativeElement.querySelector('#return');
+    console.log(a._files);
     if (typeof a.files != 'undefined') {
-      size = a.files[0].size / 1024 / 1024;
-      if (size > 10 && size != -1) {
+      sizes = a.files[0].size / 1024 / 1024;
+      if (sizes > 10 && sizes != -1) {
         b.innerHTML = 'Please Select a file less than equal to 10 MB';
         return;
       }
       b.innerHTML = a.value.split('\\')[2];
     }
+    /* let data = {
+      _id: sessionStorage.getItem('email'),
+      file: a.files[0],
+    };
+    console.log(data) */
+    this.User.upload().subscribe((res) => {
+      this.toggle = true;
+      console.log(res);
+    });
   }
-
+  toggle: boolean = false;
   onlyone(e: any) {
     if (e == 'yes') {
       this.el.nativeElement.querySelector('#no').checked = false;
