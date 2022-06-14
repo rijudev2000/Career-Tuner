@@ -51,13 +51,15 @@
         </li>
       </ul>
       <div class="tab-content pb-5" *ngIf="toggle1">
-        <div id="tab-1" class="tab-pane fade show p-0 active">
-          <div class="job-item p-4 mb-4 border" *ngFor="let i of jobData">
+        <div id="tab-1" class="tab-pane fade show p-0 active" >
+          <div *ngFor="let i of jobData">
+            <div >
+          <div class="job-item p-4 mb-4 border" style="background-color: white;">
             <div class="row g-4">
               <div class="col-sm-12 col-md-8 d-flex align-items-center">
                 <img
                   class="flex-shrink-0 img-fluid border rounded"
-                  src="/Career-Tuner/assets/user.jpg"
+                  src="/assets/user.jpg"
                   alt=""
                   style="width: 80px; height: 80px"
                 />
@@ -89,8 +91,8 @@
                       style="color: red; background-color: transparent"
                     ></fa-icon
                   ></a>
-                  <a class="btn btn-primary" (click)="clicked(i._id)"
-                    >Apply Now</a
+                  <a class="btn btn-primary" (click)="clicked(i._id)" *ngIf="i.appliedby[0] != user"
+                    >{{apply}}</a
                   >
                 </div>
                 <small class="text-truncate"
@@ -100,6 +102,8 @@
               </div>
             </div>
           </div>
+          </div>
+        </div>
         </div>
         <a class="btn btn-primary py-3 px-5 mb-5 mt-5" (click)="browsemore()"
           >Browse More Jobs</a
@@ -123,7 +127,7 @@
 </div>
 
 
-<div class="container mt-5">
+<!-- <div class="container mt-5">
   <div class="row">
     <div class="col-md-3">
        <div class="contact-form">
@@ -398,4 +402,4 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->

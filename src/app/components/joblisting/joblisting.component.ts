@@ -19,13 +19,16 @@ export class JoblistingComponent implements OnInit {
       }
     }); */
     this.User.getJobDetails().subscribe((res) => {
+      console.log(res);
       if (res.job.length != 0) {
         for (let i = 0; i < res.job.length; i++) {
           this.data.push(res.job[i]);
           if (i <= 5) {
             this.jobData.push(res.job[i]);
+            this.appliedby.push(this.jobData[i].appliedby);
           }
         }
+        console.log(this.appliedby);
       }
     });
   }
@@ -37,6 +40,9 @@ export class JoblistingComponent implements OnInit {
   like = faHeart;
   counter: number = 11;
   atom = faAtom;
+  appliedby: any = [];
+  user: any = [`${sessionStorage.getItem('email')}`];
+  apply:string='Apply Now'
 
   browsemore() {
     this.jobData = [];
@@ -119,16 +125,22 @@ export class JoblistingComponent implements OnInit {
     }
   }
   clicked(i: any) {
+  if(this.apply!='Applied'){
+    this.apply='Applied'
     let data = {
       _id: sessionStorage.getItem('email'),
       jobs: i,
     };
+
     this.User.update(data).subscribe({
       next: (res) => {
         console.log(res);
-        this.User.updateJob(sessionStorage.getItem('email'),i).subscribe((res)=>{
-          console.log(res)
-        })
+        let a = {
+          appliedby: `${sessionStorage.getItem('email')}`,
+        };
+        this.User.updateJob(a, i).subscribe((res) => {
+          console.log(res);
+        });
       },
       error: (err) => {
         if (err) {
@@ -137,5 +149,6 @@ export class JoblistingComponent implements OnInit {
         }
       },
     });
+  }
   }
 }

@@ -232,7 +232,7 @@
                   class="stats border-top cursor"
                   style="float: right; color: black"
                 >
-                  <div (click)="active('job')">
+                  <div (click)="active('jobapplied')">
                     View More<i class="fa fa-angle-right"></i>
                   </div>
                 </div>
@@ -1089,8 +1089,8 @@
     </div>
     <div class="content profile" *ngIf="activeStatus == 'jobapplied'">
       <div class="card-body">
-        <div *ngFor="let i of jobDataApplied; index as l">
-          <div *ngIf="l > 2 ? false : true">
+        <div *ngFor="let i of jobDataApplied">
+          <div *ngIf="jobDataApplied">
             <div class="d-flex flex-column border mb-1 p-3">
               <div class="d-flex flex-row">
                 <div class="down-content">

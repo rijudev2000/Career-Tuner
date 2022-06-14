@@ -60,7 +60,7 @@ export class UserService {
   }
 
 updateJob(Obj:any,id:any): Observable<any> {
-  return this.http.put(
+  return this.http.post(
     `${this.URL}/api/jobs/job/${id}`,
     Obj,
     this.config

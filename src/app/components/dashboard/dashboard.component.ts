@@ -36,6 +36,7 @@ export class DashboardComponent implements OnInit {
                 this.togglespinner = false;
               }
             }
+           
           } else {
             this.togglespinner = false;
           }
@@ -59,5 +60,16 @@ export class DashboardComponent implements OnInit {
 
   active(e: any) {
     this.activeStatus = e;
+    if(e=='jobapplied'){
+      this.jobDataApplied = []; 
+      for(let i=0;i<this.userData.jobs.length;i++){
+        this.User.getJobSingleDetail(this.userData.jobs[i]).subscribe(
+          (data) => {
+            
+            this.jobDataApplied.push(data);
+          }
+        );
+      }
+    }
   }
 }
