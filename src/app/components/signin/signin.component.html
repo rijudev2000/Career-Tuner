@@ -45,7 +45,7 @@
           <a href="#" class="social"><fa-icon [icon]="linkedin"></fa-icon></a>
         </div>
         <span>or use your account</span>
-        <span *ngIf="toggle">Invalid Email or Password</span>
+        <span *ngIf="toggle" style="color: red;">Invalid Email or Password</span>
         <input name="email" type="email" placeholder="Email" ngModel required />
         <input
           name="password"

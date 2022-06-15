@@ -35,6 +35,7 @@ export class SearchresultsComponent implements OnInit {
           var x = res[i].jobTitle.toLowerCase();
           if (x.includes(this.searchFilter)) {
             this.jobData.push(res[i]);
+            console.log(this.jobData)
           }
         }
         if (

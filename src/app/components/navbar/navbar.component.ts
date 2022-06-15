@@ -5,6 +5,7 @@ import { UserService } from 'src/app/services/user.service';
 import { Router } from '@angular/router';
 import { faUser } from '@fortawesome/free-regular-svg-icons';
 import { AuthguardService } from 'src/app/services/authguard.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-navbar',
@@ -12,28 +13,22 @@ import { AuthguardService } from 'src/app/services/authguard.service';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
-  constructor(
-    private User: UserService,
-    private Route: Router,
-    private el: ElementRef,
-    private auth: AuthguardService
-  ) {}
+  subscription: Subscription = new Subscription();
+  fauser = faUser;
+  faFacebook = faFacebook;
+  faTwitter = faTwitter;
+  faBars = faBars;
+  isLoggedIn: boolean = false;
+  link: string = '';
+  a: boolean = false;
+
+  constructor(private User: UserService) {}
 
   ngOnInit() {
-    /* if (this.auth.isAuthenticated==true) {
-      this.link = '/dashboard';
-      this.user = true;
-    } */
-    /* if(sessionStorage.getItem('email')){
-      this.link = true;
-      this.user = true;
-    }else{
-      this.link = false
-    } */
-    this.User.Auth().subscribe((res) => {
-      if (res.success == true) {
-        this.link = true;
-        this.user = true;
+    this.subscription = this.User.isAuthenticated.subscribe((res) => {
+      if (res === true) {
+        this.link = '/dashboard';
+        this.isLoggedIn = true;
       }
     });
   }
@@ -51,19 +46,4 @@ export class NavbarComponent implements OnInit {
       this.a = false;
     }
   }
-
-  fauser = faUser;
-  faFacebook = faFacebook;
-  faTwitter = faTwitter;
-  faBars = faBars;
-  user: boolean = false;
-  link: any;
-  a: boolean = false;
-  /* start() {
-    let pos = scrollY;
-    console.log(pos);
-    if (pos >= 100) {
-      this.a = true;
-    }
-  } */
 }

@@ -23,6 +23,7 @@
         <li
           (click)="active('profile')"
           [ngClass]="{ 'nav-item active': activeStatus == 'profile' }"
+          *ngIf="userData.role != 'Admin'"
         >
           <a class="nav-link">
             <i class="nc-icon nc-circle-09"></i>
@@ -54,9 +55,29 @@
           [ngClass]="{ 'nav-item active': activeStatus == 'postjob' }"
           *ngIf="userData.role == 'Recruiter'"
         >
-          <a class="nav-link" routerLink="/postJobs">
+          <a class="nav-link">
             <i class="nc-icon nc-paper-2"></i>
             <p>Post Jobs</p>
+          </a>
+        </li>
+        <li
+          (click)="active('allprofile')"
+          [ngClass]="{ 'nav-item active': activeStatus == 'allprofile' }"
+          *ngIf="userData.role == 'Admin'"
+        >
+          <a class="nav-link">
+            <i class="nc-icon nc-circle-09"></i>
+            <p>All Profile</p>
+          </a>
+        </li>
+        <li
+          (click)="active('alljobs')"
+          [ngClass]="{ 'nav-item active': activeStatus == 'alljobs' }"
+          *ngIf="userData.role == 'Admin'"
+        >
+          <a class="nav-link">
+            <i class="nc-icon nc-paper-2"></i>
+            <p>All Jobs</p>
           </a>
         </li>
         <!-- <li (click)="active('')">
@@ -64,20 +85,20 @@
             <i class="nc-icon nc-atom"></i>
             <p>Icons</p>
           </a>
-        </li> -->
-        <!-- <li (click)="active('')">
+        </li>
+        <li (click)="active('')">
           <a class="nav-link" href="./maps.html">
             <i class="nc-icon nc-pin-3"></i>
             <p>Maps</p>
           </a>
-        </li> -->
-        <!-- <li (click)="active('')">
+        </li>
+        <li (click)="active('')">
           <a class="nav-link" href="./notifications.html">
             <i class="nc-icon nc-bell-55"></i>
             <p>Notifications</p>
           </a>
-        </li> -->
-        <!-- <li class="nav-item active active-pro">
+        </li>
+        <li class="nav-item active active-pro">
           <a class="nav-link active">
             <i class="nc-icon nc-alien-33"></i>
             <p>Voila !!</p>
@@ -87,7 +108,7 @@
     </div>
     <div
       class="sidebar-background"
-      style="background-image: url(/Career-Tuner/assets/header-background.jpg)"
+      style="background-image: url(/assets/header-background.jpg)"
     ></div>
   </div>
   <div class="main-panel">
@@ -1081,12 +1102,15 @@
         </div> -->
       </div>
     </div>
+
     <div class="content" *ngIf="activeStatus == 'profile'">
       <app-profile [userData]="userData"></app-profile>
     </div>
+
     <div class="content profile" *ngIf="activeStatus == 'job'">
       <app-joblisting></app-joblisting>
     </div>
+
     <div class="content profile" *ngIf="activeStatus == 'jobapplied'">
       <div class="card-body">
         <div *ngFor="let i of jobDataApplied">
@@ -1138,6 +1162,7 @@
         </div>
       </div>
     </div>
+
     <div class="content" *ngIf="activeStatus == 'postjob'">
       <app-createjob></app-createjob>
     </div>

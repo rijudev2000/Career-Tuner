@@ -4,7 +4,7 @@
 >
   <div class="d-flex">
     <a class="navbar-brand p-2" routerLink="">Career Tuner</a>
-    <button
+    <!-- <button
       class="navbar-toggler"
       type="button"
       data-toggle="collapse"
@@ -21,7 +21,7 @@
         class="navbar-toggler-awesome fas fa-times"
         style="color: #ffbd50"
       ></span>
-    </button>
+    </button> -->
 
     <div
       class="collapse navbar-collapse"
@@ -30,7 +30,7 @@
     >
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link" routerLink="{{ link?'/dashboard':'' }}">HOME</a>
+          <a class="nav-link" [routerLink]="link">HOME</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="/jobs">JOBS</a>
@@ -39,7 +39,7 @@
           <a class="nav-link" routerLink="/AboutUs">ABOUT US</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/user/signin" *ngIf="!user"
+          <a class="nav-link" routerLink="/user/signin" *ngIf="!isLoggedIn"
             >SIGN IN</a
           >
         </li>

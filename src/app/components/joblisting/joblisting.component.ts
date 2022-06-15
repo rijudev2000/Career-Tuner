@@ -132,13 +132,13 @@ export class JoblistingComponent implements OnInit {
       jobs: i,
     };
 
-    this.User.update(data).subscribe({
+    this.User.updateSingleUser(data).subscribe({
       next: (res) => {
         console.log(res);
         let a = {
           appliedby: `${sessionStorage.getItem('email')}`,
         };
-        this.User.updateJob(a, i).subscribe((res) => {
+        this.User.updateSingleJob(a, i).subscribe((res) => {
           console.log(res);
         });
       },

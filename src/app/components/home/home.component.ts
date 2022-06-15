@@ -1,8 +1,7 @@
-import { Component, HostListener, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import { UserService } from 'src/app/services/user.service';
-import { NgForm } from '@angular/forms';
 import { faAtom, faCircle } from '@fortawesome/free-solid-svg-icons';
 import { AuthguardService } from 'src/app/services/authguard.service';
 
@@ -19,14 +18,9 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    /* if (this.auth.isAuthenticated==true) {
-      this.toggle = true;
-      this.togglespinner = false;
-    } else {
-      this.togglespinner = false;
-    } */
     this.User.Auth().subscribe((res) => {
       if (res.success == true) {
+        this.User.isAuthenticated.next(true);
         this.toggle = true;
         this.togglespinner = false;
       }
@@ -34,43 +28,14 @@ export class HomeComponent implements OnInit {
         this.togglespinner = false;
       }
     });
-    /* this.User.getJobDetails().subscribe((res) => {
-      if(res.success == true){
-        this.togglespinner = false;
-      }
-      for (let i = 0; i < res.job.length; i++) {
-        this.data.push(res.job[i]);
-        if (i <= 5) {
-          this.jobData.push(res.job[i]);
-        }
-      }
-    }); */
   }
   circle = faCircle;
-  /*   data: any = []; */
   toggle: boolean = false;
   toggle1: boolean = true;
-  /*   jobData: any = []; */
   like = faHeart;
   counter: number = 11;
   atom = faAtom;
   togglespinner: boolean = true;
-
-  /*   brows  togglespinner:boolean = true;
- for (let i = 0; i < this.data.length; i++) {
-      if (i <= this.counter) {
-        this.jobData.push(this.data[i]);
-      }
-    }
-    this.counter += 6;
-  } */
-  /* start() {
-    let pos = scrollY;
-    console.log(pos);
-    if (pos >= 100) {
-      this.a = true;
-    }
-  } */
 
   onSubmit(e: any) {
     console.log(e.target.location.value);
@@ -135,21 +100,4 @@ export class HomeComponent implements OnInit {
       this.jobData.push(datas);
     }
   } */
-  clicked(i: any) {
-    let data = {
-      _id: sessionStorage.getItem('email'),
-      jobs: i,
-    };
-    this.User.update(data).subscribe(
-      (res) => {
-        console.log(res);
-      },
-      (err) => {
-        if (err) {
-          alert('Login to Apply');
-          this.Route.navigate(['/user/signin']);
-        }
-      }
-    );
-  }
 }

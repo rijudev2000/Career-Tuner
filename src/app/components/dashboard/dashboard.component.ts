@@ -22,7 +22,7 @@ export class DashboardComponent implements OnInit {
       (res) => {
         if (res.success == true) {
           this.userData = res.user;
-          console.log(res.user)
+          console.log(res.user);
           this.role = res.user.role;
           if (res.user.role == 'Applicant' && res.user.jobs.length != 0) {
             for (let i = 0; i < res.user.jobs.length; i++) {
@@ -36,7 +36,6 @@ export class DashboardComponent implements OnInit {
                 this.togglespinner = false;
               }
             }
-           
           } else {
             this.togglespinner = false;
           }
@@ -53,6 +52,7 @@ export class DashboardComponent implements OnInit {
   logout() {
     this.User.Logout().subscribe((res) => {
       if (res.success == true) {
+        this.User.isAuthenticated.next(false);
         this.Route.navigate(['']);
       }
     });
@@ -60,12 +60,11 @@ export class DashboardComponent implements OnInit {
 
   active(e: any) {
     this.activeStatus = e;
-    if(e=='jobapplied'){
-      this.jobDataApplied = []; 
-      for(let i=0;i<this.userData.jobs.length;i++){
+    if (e == 'jobapplied') {
+      this.jobDataApplied = [];
+      for (let i = 0; i < this.userData.jobs.length; i++) {
         this.User.getJobSingleDetail(this.userData.jobs[i]).subscribe(
           (data) => {
-            
             this.jobDataApplied.push(data);
           }
         );

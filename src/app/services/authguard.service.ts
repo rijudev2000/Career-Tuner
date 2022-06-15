@@ -40,9 +40,11 @@ export class AuthguardService implements CanActivate {
       .then((res) => {
         if (res.success == true) {
           this.isAuthenticated = true;
+          this.User.isAuthenticated.next(true)
           return this.isAuthenticated;
         }
         if (res.success == false) {
+          this.User.isAuthenticated.next(false)
           this.isAuthenticated = false;
           return this.router.parseUrl('/user/signin');
         }

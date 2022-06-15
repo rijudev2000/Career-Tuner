@@ -24,7 +24,6 @@ export class CreatejobComponent implements OnInit {
   }
 
   submit(event: any) {
-    /* console.log(event.target.jobcategory.value); */
     let data={
       postedby: {email: sessionStorage.getItem('email')},
       jobTitle: event.target.jobTitle.value,

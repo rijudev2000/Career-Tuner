@@ -1,8 +1,9 @@
-import { Component, ElementRef, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, ElementRef, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import { IDropdownSettings } from 'ng-multiselect-dropdown';
 import * as skills from '../../models/skills.json';
+import { Subscription } from 'rxjs';
 
 export let browserRefresh = false;
 
@@ -12,33 +13,39 @@ export let browserRefresh = false;
   styleUrls: ['./newuserdetails.component.scss'],
 })
 export class NewuserdetailsComponent implements OnInit {
+  subscription: Subscription = new Subscription();
+
+  isLoggedIn: any;
+  skill: any = [];
+  email: any;
+  mobile: any;
+  role: any;
+  date: any = Array.from(Array(31).keys()).map((x) => x + 1);
+  year: number[] = [];
+  pic: string = 'Add Picture';
+  togglepg: boolean = false;
+  toggleug: boolean = true;
+  toggleugg: number = 0;
+  togglepgg: number = 0;
+
+  dropdownList: {}[] = (skills as any).default;
+  dropdownSettings: IDropdownSettings = {
+    singleSelection: false,
+    allowSearchFilter: true,
+  };
+
   constructor(
     private User: UserService,
     private Route: Router,
-    private el: ElementRef,
-    private activatedRoute: ActivatedRoute
+    private el: ElementRef
   ) {}
 
   ngOnInit(): void {
-    console.log(this.User.signupModel);
-    /* this.User.getSkills().subscribe((res)=>{
-      console.log(res)
-    }) */
-    /* this.dropdownList = [
-      { item_id: 1, item_text: 'Mumbai' },
-      { item_id: 2, item_text: 'Bangaluru' },
-      { item_id: 3, item_text: 'Pune' },
-      { item_id: 4, item_text: 'Navsari' },
-      { item_id: 5, item_text: 'New Delhi' }
-    ]; */
-    /* console.log(this.User.signupModel); */
-    /* if (this.User.signupModel._id == undefined) {
-      alert('Refreshing the page lost you data \n Please fill the form again');
-      this.Route.navigate(['/user/register']);
-    } */
+    
     if (this.User.signupModel._id != undefined) {
       this.email = this.User.signupModel._id;
       this.mobile = this.User.signupModel.phone;
+      this.role = this.User.signupModel.role;
     }
 
     for (
@@ -50,21 +57,6 @@ export class NewuserdetailsComponent implements OnInit {
     }
   }
 
-  dropdownList: {}[] = (skills as any).default;
-  dropdownSettings: IDropdownSettings = {
-    singleSelection: false,
-    allowSearchFilter: true,
-  };
-  skill: any = [];
-  email: any;
-  mobile: any;
-  date: any = Array.from(Array(31).keys()).map((x) => x + 1);
-  year: number[] = [];
-  pic: string = 'Add Picture';
-  togglepg: boolean = false;
-  toggleug: boolean = true;
-  toggleugg: number = 0;
-  togglepgg: number = 0;
   submit(e: any) {
     console.log(this.User.signupModel);
     this.User.signupModel._id = e.target.email.value;
@@ -96,6 +88,7 @@ export class NewuserdetailsComponent implements OnInit {
       e.target.month.value +
       '/' +
       e.target.year.value;
+    console.log(this.User.signupModel);
 
     this.User.SignUp(this.User.signupModel).subscribe((res) => {
       if (res == 200) {
@@ -143,11 +136,10 @@ export class NewuserdetailsComponent implements OnInit {
     };
     console.log(data) */
     this.User.upload().subscribe((res) => {
-      this.toggle = true;
       console.log(res);
     });
   }
-  toggle: boolean = false;
+
   onlyone(e: any) {
     if (e == 'yes') {
       this.el.nativeElement.querySelector('#no').checked = false;

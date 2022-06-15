@@ -42,9 +42,6 @@ export class SigninComponent implements OnInit {
         myTag.classList.remove('right-panel-active');
       }
     });
-    /* if(this.auth.isAuthenticated==true){
-      this.Route.navigate(['dashboard']);
-    } */
   }
 
   facebook = faFacebookF;
@@ -76,7 +73,8 @@ export class SigninComponent implements OnInit {
           sessionStorage.setItem('role', res.user.role);
           setTimeout(() => {
             this.toggle1 = false;
-            this.Route.navigate(['dashboard']);
+            this.Route.navigate(['/dashboard']);
+            this.User.isAuthenticated.next(true);            
           }, 3000);
         } else {
           console.log(res);
