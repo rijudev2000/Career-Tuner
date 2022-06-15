@@ -24,8 +24,8 @@
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "/Career-Tuner/favicon.ico",
-              "/Career-tuner/assets"
+              "src/favicon.ico",
+              "src/Career-tuner/assets"
             ],
             "styles": [
               "src/styles.scss"
