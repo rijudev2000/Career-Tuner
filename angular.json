@@ -25,7 +25,7 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/Career-Tuner"
+              "src/assets"
             ],
             "styles": [
               "src/styles.scss"
