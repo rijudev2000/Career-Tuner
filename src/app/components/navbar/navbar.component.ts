@@ -4,7 +4,6 @@ import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { UserService } from 'src/app/services/user.service';
 import { Router } from '@angular/router';
 import { faUser } from '@fortawesome/free-regular-svg-icons';
-import { AuthguardService } from 'src/app/services/authguard.service';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -19,15 +18,13 @@ export class NavbarComponent implements OnInit {
   faTwitter = faTwitter;
   faBars = faBars;
   isLoggedIn: boolean = false;
-  link: string = '';
   a: boolean = false;
 
-  constructor(private User: UserService) {}
+  constructor(private User: UserService, private Route: Router) {}
 
   ngOnInit() {
     this.subscription = this.User.isAuthenticated.subscribe((res) => {
       if (res === true) {
-        this.link = '/dashboard';
         this.isLoggedIn = true;
       }
     });
@@ -45,5 +42,15 @@ export class NavbarComponent implements OnInit {
     } else {
       this.a = false;
     }
+  }
+
+  logout() {
+    this.User.Logout().subscribe((res) => {
+      if (res.success == true) {
+        this.User.isAuthenticated.next(false);
+        this.isLoggedIn = false;
+        window.location.reload();
+      }
+    });
   }
 }

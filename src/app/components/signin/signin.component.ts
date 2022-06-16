@@ -8,7 +8,6 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 import { UserService } from 'src/app/services/user.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AuthguardService } from 'src/app/services/authguard.service';
 
 @Component({
   selector: 'app-signin',
@@ -20,8 +19,7 @@ export class SigninComponent implements OnInit {
     private User: UserService,
     private Route: Router,
     private el: ElementRef,
-    private activatedRoute: ActivatedRoute,
-    private auth: AuthguardService
+    private activatedRoute: ActivatedRoute
   ) {}
 
   ngOnInit(): void {

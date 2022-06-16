@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import { UserService } from 'src/app/services/user.service';
 import { faAtom, faCircle } from '@fortawesome/free-solid-svg-icons';
-import { AuthguardService } from 'src/app/services/authguard.service';
 
 @Component({
   selector: 'app-home',
@@ -13,8 +12,7 @@ import { AuthguardService } from 'src/app/services/authguard.service';
 export class HomeComponent implements OnInit {
   constructor(
     private User: UserService,
-    private Route: Router,
-    private auth: AuthguardService
+    private Route: Router
   ) {}
 
   ngOnInit(): void {

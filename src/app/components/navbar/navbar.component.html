@@ -29,8 +29,11 @@
       style="float: right"
     >
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="link">HOME</a>
+        <li class="nav-item" *ngIf="isLoggedIn">
+          <a class="nav-link" routerLink="/dashboard">HOME</a>
+        </li>
+        <li class="nav-item" *ngIf="!isLoggedIn">
+          <a class="nav-link" routerLink="">HOME</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="/jobs">JOBS</a>
@@ -43,7 +46,13 @@
             >SIGN IN</a
           >
         </li>
+        
       </ul>
+      <span class="social-icons nav-item" *ngIf="isLoggedIn">
+        <a class="nav-link" (click)="logout()"
+          >LOG OUT</a
+        >
+      </span>
     </div>
   </div>
 </nav>

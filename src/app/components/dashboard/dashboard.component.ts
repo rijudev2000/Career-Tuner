@@ -1,7 +1,6 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserData } from 'src/app/models/user.model';
-import { AuthguardService } from 'src/app/services/authguard.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -13,8 +12,7 @@ export class DashboardComponent implements OnInit {
   constructor(
     private User: UserService,
     private Route: Router,
-    private el: ElementRef,
-    private auth: AuthguardService
+    private el: ElementRef
   ) {}
 
   ngOnInit(): void {
