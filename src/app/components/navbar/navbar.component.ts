@@ -49,6 +49,7 @@ export class NavbarComponent implements OnInit {
       if (res.success == true) {
         this.User.isAuthenticated.next(false);
         this.isLoggedIn = false;
+        localStorage.clear();
         window.location.reload();
       }
     });

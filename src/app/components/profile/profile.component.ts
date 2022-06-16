@@ -16,17 +16,10 @@ export class ProfileComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.email= this.userData._id;
+    this.email = this.userData._id;
   }
   @Input()
   userData!: UserData;
 
-  logout() {
-    this.User.Logout().subscribe((res) => {
-      if (res.success == true) {
-        this.Route.navigate(['']);
-      }
-    });
-  }
-  email:any;
+  email: any;
 }

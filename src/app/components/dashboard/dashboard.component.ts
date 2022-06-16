@@ -51,6 +51,7 @@ export class DashboardComponent implements OnInit {
     this.User.Logout().subscribe((res) => {
       if (res.success == true) {
         this.User.isAuthenticated.next(false);
+        localStorage.clear();
         this.Route.navigate(['']);
       }
     });
