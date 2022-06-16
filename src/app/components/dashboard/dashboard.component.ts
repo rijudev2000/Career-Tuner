@@ -18,7 +18,7 @@ export class DashboardComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.User.getUserDetails(sessionStorage.getItem('email')).subscribe(
+    this.User.getUserDetails(localStorage.getItem('email')).subscribe(
       (res) => {
         if (res.success == true) {
           this.userData = res.user;

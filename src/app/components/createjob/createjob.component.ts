@@ -16,7 +16,7 @@ export class CreatejobComponent implements OnInit {
         this.Route.navigate(['/user/signin']);
       }
       else{
-        if(sessionStorage.getItem('role')!='Recruiter'){
+        if(localStorage.getItem('role')!='Recruiter'){
       this.Route.navigate(['']);
     }
       }
@@ -25,7 +25,7 @@ export class CreatejobComponent implements OnInit {
 
   submit(event: any) {
     let data={
-      postedby: {email: sessionStorage.getItem('email')},
+      postedby: {email: localStorage.getItem('email')},
       jobTitle: event.target.jobTitle.value,
       jobDescription: event.target.jobdescription,
       jobtype: event.target.jobtype,

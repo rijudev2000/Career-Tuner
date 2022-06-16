@@ -23,7 +23,7 @@ export class UsernavComponent implements OnInit {
     /* this.User.Auth().subscribe((res) => {
       if (res.success === true) {
         this.user = false;
-        this.link = '/home/' + sessionStorage.getItem('name');
+        this.link = '/home/' + localStorage.getItem('name');
       }
     }); */
   }
@@ -37,7 +37,7 @@ export class UsernavComponent implements OnInit {
   click() {
     this.User.Logout().subscribe((res) => {
       if (res.success == true) {
-        sessionStorage.clear();
+        localStorage.clear();
         this.Route.navigate(['']);
       }
     });

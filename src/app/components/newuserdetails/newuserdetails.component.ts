@@ -131,7 +131,7 @@ export class NewuserdetailsComponent implements OnInit {
       b.innerHTML = a.value.split('\\')[2];
     }
     /* let data = {
-      _id: sessionStorage.getItem('email'),
+      _id: localStorage.getItem('email'),
       file: a.files[0],
     };
     console.log(data) */

@@ -59,8 +59,8 @@ export class SigninComponent implements OnInit {
     this.User.Login(this.loginModel).subscribe({
       next: (res) => {
         if (res.success == true) {
-          sessionStorage.setItem('email', res.user._id);
-          sessionStorage.setItem(
+          localStorage.setItem('email', res.user._id);
+          localStorage.setItem(
             'name',
             (
               res.user.fname +
@@ -70,7 +70,7 @@ export class SigninComponent implements OnInit {
               res.user.lname
             ).toLowerCase()
           );
-          sessionStorage.setItem('role', res.user.role);
+          localStorage.setItem('role', res.user.role);
           setTimeout(() => {
             this.toggle1 = false;
             this.Route.navigate(['/dashboard']);

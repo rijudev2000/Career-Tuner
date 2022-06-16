@@ -41,7 +41,7 @@ export class JoblistingComponent implements OnInit {
   counter: number = 11;
   atom = faAtom;
   appliedby: any = [];
-  user: any = [`${sessionStorage.getItem('email')}`];
+  user: any = [`${localStorage.getItem('email')}`];
   apply:string='Apply Now'
 
   browsemore() {
@@ -128,7 +128,7 @@ export class JoblistingComponent implements OnInit {
   if(this.apply!='Applied'){
     this.apply='Applied'
     let data = {
-      _id: sessionStorage.getItem('email'),
+      _id: localStorage.getItem('email'),
       jobs: i,
     };
 
@@ -136,7 +136,7 @@ export class JoblistingComponent implements OnInit {
       next: (res) => {
         console.log(res);
         let a = {
-          appliedby: `${sessionStorage.getItem('email')}`,
+          appliedby: `${localStorage.getItem('email')}`,
         };
         this.User.updateSingleJob(a, i).subscribe((res) => {
           console.log(res);
